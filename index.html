@@ -2,19 +2,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LL-Complex</title>
+  <title>LL-Complex — лечение псориаза</title>
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 </head>
-<body class="ll-bg">
-  <!-- Ватсап закреплённый снизу справа и вибрирующий при скролле -->
-  <a href="https://wa.me/89640105995" class="whatsapp-float" target="_blank">
-    <img src="images/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon">
-  </a>  <!-- Ресничка (меню), закреплённая -->  <header class="navbar">
+<body>
+  <!-- WhatsApp (закреплён снизу справа) -->
+  <a href="https://wa.me/89640105995" class="whatsapp-button">
+    <img src="images/whatsapp-icon.png" alt="WhatsApp">
+  </a>  <!-- Ресничка (меню) -->  <header class="navbar">
     <div class="logo">LL-Complex</div>
     <nav>
-      <ul>
-        <li><a href="#about">Что такое LL-Complex</a></li>
+      <ul class="nav-links">
+        <li><a href="#about">Что такое</a></li>
         <li><a href="#treatment">Лечение</a></li>
         <li><a href="#results">До и После</a></li>
         <li><a href="#docs">Документы</a></li>
@@ -22,127 +22,102 @@
         <li><a href="#buy">Купить</a></li>
       </ul>
     </nav>
-  </header>  <!-- Welcome-блок -->  <section class="welcome">
-    <div class="welcome-text fade-in">
-      <h1 class="decorative-heading">LL-COMPLEX — препарат новейшего поколения от псориаза</h1>
-      <h2 class="stamp-style">Гарантированный результат*</h2>
-      <p class="highlight">Псориаз ушёл у 8 из 10 пациентов</p>
-      <p class="tiny-disclaimer">*При условии строгого соблюдения полного курса без пропусков. Пропуск приёма — отменяет гарантию результата.</p>
-      <p class="subtext">Клинически подтверждённое восстановление кожи при псориазе, аллергии, дерматитах и более.</p>
-      <a href="https://wa.me/89640105995" class="btn buy-btn">Купить</a>
+  </header>  <!-- Welcome -->  <section id="welcome" class="welcome fade-in">
+    <h1 class="main-title">LL-COMPLEX — препарат новейшего поколения от псориаза</h1>
+    <h2 class="guarantee">Гарантированный результат*</h2>
+    <p class="highlight">Псориаз ушёл у 8 из 10 пациентов</p>
+    <p class="disclaimer">*При условии строгого соблюдения полного курса без пропусков. Пропуск приёма отменяет гарантию результата.</p>
+    <p class="description">Клинически подтверждённое восстановление кожи при псориазе, аллергии, дерматитах и более.</p>
+    <a href="https://wa.me/89640105995" class="btn">Купить</a>
+  </section>  <!-- Что такое LL-Complex -->  <section id="about" class="section dark">
+    <h2 class="section-title">Что такое LL-Complex</h2>
+    <div class="video-frame">
+      <iframe src="https://www.youtube.com/embed/JiVxcW1wnOc" allowfullscreen></iframe>
     </div>
-  </section>  <!-- Блок "Что такое LL-Complex" с видео и счётчиком -->  <section id="about" class="section dark-block">
-    <h2>Что такое LL-Complex</h2>
-    <iframe class="video-frame" src="https://www.youtube.com/embed/JiVxcW1wnOc" frameborder="0" allowfullscreen></iframe>
     <p class="about-text">LL-Complex — это жидкий минеральный кальций, дополненный бором, селеном, магнием, натрием, калием и хлором. Уникальная формула проникает на клеточном уровне и запускает процессы восстановления.</p>
     <div class="product-showcase">
-      <img src="images/llcomplex-bottle-cut.png" alt="LL-Complex Бутылка">
+      <div class="product-podium">
+        <img src="images/llcomplex-bottles.png" alt="LL-Complex Бутылка">
+      </div>
       <div class="price-box">
-        <p class="old-price">3 500₽</p>
-        <p class="new-price">2 599₽</p>
-        <p class="discount-note">от 10 бутылок — индивидуальная скидка</p>
-        <div class="countdown-box">
-          <span class="countdown-label">До конца акции:</span> <span id="countdown-bottle"></span>
-        </div>
-        <a href="https://wa.me/89640105995" class="btn buy-btn">Купить сейчас</a>
+        <p class="old-price">3 500 ₽</p>
+        <p class="new-price">2 599 ₽</p>
+        <p class="note">от 10 бутылок — индивидуальная скидка</p>
+        <div class="countdown-box">До конца акции: <span id="countdown"></span></div>
+        <a href="https://wa.me/89640105995" class="btn">Купить сейчас</a>
       </div>
     </div>
-  </section>  <!-- Продолжение будет ниже --></body>
-</html><!-- Блок "Для кого LL-Complex" --><section class="section audience">
-  <h2 class="centered-title">Для кого LL-Complex</h2>
-  <div class="audience-content">
-    <ul class="audience-text">
-      <li>Для тех, кто страдает от псориаза (любая стадия)</li>
-      <li>Для детей с аллергическими высыпаниями</li>
-      <li>Для беременных (натуральный состав)</li>
-      <li>Для очищения организма (дренаж)</li>
-      <li>Для восстановления кожи после обострений</li>
-      <li>Для ингаляций (по согласованию)</li>
-    </ul>
-    <div class="audience-images">
-      <img src="images/before-head.jpeg" alt="Псориаз">
-      <img src="images/pregnant-woman.jpeg" alt="Беременная">
-      <img src="images/nebulizer-device.jpeg" alt="Ингаляции">
-    </div>
-  </div>
-</section><!-- Блок "Полный курс лечения" с растянутым фото и видео --><section id="treatment" class="section course">
-  <img src="images/llcomplex-box.jpg" alt="Полный курс LL-Complex" class="full-width-banner">
-  <h2 class="course-title">Полный курс лечения 90 дней!</h2>
-  <div class="video-wrapper">
-    <iframe class="video-frame" src="https://www.youtube.com/embed/Gi2N-qT4loM" frameborder="0" allowfullscreen></iframe>
-  </div>
-  <p class="course-description">
-    Полный курс лечения первой стадии — 90 дней (1 бокс).<br>
-    Вторая и третья стадия — продлеваются индивидуально.<br>
-    Видимый эффект уже после 2–3 недель при регулярном приёме.
-  </p>
-  <div class="course-price-box">
-    <p class="course-price">40 000 ₽</p>
-    <p class="course-discount">Экономия до 7 000 ₽ по сравнению с покупкой поштучно</p>
-    <a href="https://wa.me/89640105995" class="btn buy-btn">Хочу бокс</a>
-    <div class="countdown-box">
-      <span class="countdown-label">До конца акции:</span> <span id="countdown-box"></span>
-    </div>
-  </div>
-</section><!-- До и После -->
-    <section id="do-i-posle" class="section">
-      <h2 class="section-title">Результаты применения LL-Complex</h2>
-      <div class="gallery">
-        <div class="gallery-item">
-          <img src="images/before-head.jpeg" alt="До" />
-          <img src="images/after-head.jpeg" alt="После" />
-        </div>
-        <div class="gallery-item">
-          <img src="images/before-belly.jpeg" alt="До" />
-          <img src="images/after-belly.jpeg" alt="После" />
-        </div>
-        <div class="gallery-item">
-          <img src="images/before-leg.jpeg" alt="До" />
-          <img src="images/after-leg.jpeg" alt="После" />
-        </div>
-        <div class="gallery-item">
-          <img src="images/before-boy.jpeg" alt="До" />
-          <img src="images/after-boy.jpeg" alt="После" />
-        </div>
-      </div>
-      <a href="https://wa.me/79640105995" class="btn">Хочу такой результат</a>
-    </section>
-
-    <!-- Отзывы -->
-    <section id="otzyvy" class="section">
-      <h2 class="section-title">Отзывы</h2>
-      <div class="review-cards">
-        <div class="review-card">
-          <img src="images/review-mom-allergy.jpg" alt="Отзыв мамы">
-          <p>«У сына была сильная аллергия. Уже после первого курса началось улучшение. Прошли два курса — кожа полностью восстановилась.»</p>
-        </div>
-        <div class="review-card">
-          <img src="images/review-doctor-dermatologist.jpg" alt="Отзыв дерматолога">
-          <p>«Я рекомендую LL-Complex своим пациентам. Он показывает лучшие результаты среди препаратов, которые я проверяла.»</p>
-        </div>
-        <div class="review-card">
-          <img src="images/review-blogger-result.jpg" alt="Отзыв блогера">
-          <p>«Очищение организма и кожи, улучшение самочувствия и энергии. LL-Complex — мой личный выбор.»</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Документы -->
-    <footer id="dokumenty" class="footer">
-      <h2>Документы</h2>
-      <p>LL-Complex распространяется исключительно через официального дистрибьютора на территории РФ.</p>
-      <ul class="docs">
-        <li><a href="docs/sertifikat.pdf" target="_blank"><strong>Сертификат качества</strong></a></li>
-        <li><a href="docs/protokol.pdf" target="_blank"><strong>Протокол испытаний</strong></a></li>
-        <li><a href="docs/deklaraciya.pdf" target="_blank"><strong>Декларация о соответствии</strong></a></li>
+  </section>  <!-- Для кого -->  <section id="audience" class="section">
+    <h2 class="section-title">Для кого LL-Complex</h2>
+    <div class="audience-wrapper">
+      <ul class="audience-text">
+        <li>Для тех, кто страдает от псориаза (любая стадия)</li>
+        <li>Для детей с аллергическими высыпаниями</li>
+        <li>Для беременных (натуральный состав)</li>
+        <li>Для очищения организма (дренаж)</li>
+        <li>Для восстановления кожи после обострений</li>
+        <li>Для ингаляций (по согласованию)</li>
       </ul>
-    </footer>
+      <div class="audience-cards">
+        <img src="images/psoriaz.jpg" alt="Псориаз">
+        <img src="images/pregnant-woman.jpeg" alt="Беременная">
+        <img src="images/nebulizer-device.jpeg" alt="Ингаляции">
+      </div>
+    </div>
+  </section>  <!-- Полный курс лечения -->  <section id="treatment" class="section">
+    <img src="images/llcomplex-box.jpg" alt="Бокс LL-Complex" class="full-width-box">
+    <h2 class="section-title">Полный курс лечения 90 дней!</h2>
+    <div class="video-frame">
+      <iframe src="https://www.youtube.com/embed/Gi2N-qT4loM" allowfullscreen></iframe>
+    </div>
+    <p class="treatment-text">Полный курс первой стадии — 90 дней (1 бокс). Вторая и третья стадия — продлеваются индивидуально. Видимый эффект уже через 2–3 недели при регулярном приёме.</p>
+    <div class="price-box">
+      <p class="new-price">40 000 ₽</p>
+      <p class="note">Экономия до 7 000 ₽ по сравнению с покупкой поштучно</p>
+      <div class="countdown-box">До конца акции: <span id="countdown-box"></span></div>
+      <a href="https://wa.me/89640105995" class="btn">Хочу бокс</a>
+    </div>
+  </section><!-- До и После -->
+<section id="results">
+  <h2>Результаты применения LL-Complex</h2>
+  <div class="gallery-scroll">
+    <div class="gallery-item"><img src="images/before-head.jpeg" alt="До"><img src="images/after-head.jpeg" alt="После"></div>
+    <div class="gallery-item"><img src="images/before-belly.jpeg" alt="До"><img src="images/after-belly.jpeg" alt="После"></div>
+    <div class="gallery-item"><img src="images/before-leg.jpeg" alt="До"><img src="images/after-leg.jpeg" alt="После"></div>
+    <div class="gallery-item"><img src="images/before-boy.jpeg" alt="До"><img src="images/after-boy.jpeg" alt="После"></div>
+  </div>
+  <a href="https://wa.me/89640105995" class="btn">Хочу такой результат</a>
+</section>
 
-    <!-- Закреплённый WhatsApp -->
-    <a href="https://wa.me/79640105995" class="whatsapp-button" id="whatsapp-button" target="_blank">
-      <img src="images/llcomplex-bottles.png" alt="WhatsApp">
-    </a>
+<!-- Отзывы -->
+<section id="reviews">
+  <h2>Отзывы</h2>
+  <div class="review">
+    <div class="review-card">
+      <img src="images/review-mom-allergy.jpg" alt="Мама">
+      <p>«У сына была сильная аллергия. Уже после первого курса началось улучшение. Прошли два курса — кожа полностью восстановилась.»</p>
+    </div>
+    <div class="review-card">
+      <img src="images/review-doctor-dermatologist.jpg" alt="Врач">
+      <p>«Я рекомендую LL-Complex своим пациентам. Он показывает лучшие результаты среди препаратов, которые я проверяла.»</p>
+    </div>
+    <div class="review-card">
+      <img src="images/review-blogger-result.jpg" alt="Блогер">
+      <p>«Очищение организма и кожи, улучшение самочувствия и энергии. LL-Complex — мой личный выбор.»</p>
+    </div>
+  </div>
+</section>
 
-    <script src="script.js"></script>
+<!-- Документы -->
+<footer id="docs">
+  <h2>Документы</h2>
+  <p>LL-Complex распространяется исключительно через официального дистрибьютора на территории РФ.</p>
+  <ul class="docs">
+    <li><a href="docs/sertifikat.pdf" target="_blank"><strong>Сертификат качества</strong></a></li>
+    <li><a href="docs/protokol.pdf" target="_blank"><strong>Протокол испытаний</strong></a></li>
+    <li><a href="docs/deklaraciya.pdf" target="_blank"><strong>Декларация о соответствии</strong></a></li>
+  </ul>
+</footer>
+
   </body>
 </html>
