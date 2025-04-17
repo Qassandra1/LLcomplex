@@ -22,5 +22,3 @@
 
 /* === WHATSAPP BUTTON === */ .whatsapp-button { position: fixed; bottom: 20px; right: 20px; z-index: 10000; animation: shake 3s infinite ease-in-out; } .whatsapp-button img { width: 60px; height: 60px; } @keyframes shake { 0%   { transform: translate(0, 0); } 25%  { transform: translate(-2px, 2px); } 50%  { transform: translate(2px, -2px); } 75%  { transform: translate(-2px, -2px); } 100% { transform: translate(2px, 2px); } }
 
-/* === DESKTOP ONLY === */ @media screen and (max-width: 1024px) { body { display: none; } }
-
