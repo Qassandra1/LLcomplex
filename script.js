@@ -1,24 +1,37 @@
-// === СТАРТ СЧЁТЧИКОВ НА 48 ЧАСОВ === function startCountdown(id) { const element = document.getElementById(id); if (!element) return;
+// === ПАРАЛЛАКС, СЧЁТЧИКИ, ВИБРАЦИЯ, АНИМАЦИИ И СКРОЛЛ ===
 
-const now = Date.now(); let deadline = localStorage.getItem(llc_${id}); if (!deadline) { deadline = now + 48 * 60 * 60 * 1000; localStorage.setItem(llc_${id}, deadline); }
+// Инициализирует обратный отсчёт на 48 часов function startCountdown(id) { const element = document.getElementById(id); if (!element) return; const key = llc_deadline_${id}; let deadline = localStorage.getItem(key); if (!deadline) { deadline = Date.now() + 48 * 3600 * 1000; localStorage.setItem(key, deadline); } function update() { const now = Date.now(); const diff = deadline - now; if (diff <= 0) { element.textContent = '00:00:00'; return; } const h = String(Math.floor(diff / 3600000)).padStart(2, '0'); const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0'); const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0'); element.textContent = ${h}:${m}:${s}; } update(); setInterval(update, 1000); }
 
-function update() { const remaining = deadline - Date.now(); if (remaining <= 0) { element.textContent = "00:00:00"; return; } const h = Math.floor(remaining / 3600000).toString().padStart(2, '0'); const m = Math.floor((remaining % 3600000) / 60000).toString().padStart(2, '0'); const s = Math.floor((remaining % 60000) / 1000).toString().padStart(2, '0'); element.textContent = ${h}:${m}:${s}; }
+// По загрузке страницы document.addEventListener('DOMContentLoaded', () => { // Запускаем оба таймера startCountdown('countdown'); startCountdown('countdown-box');
 
-update(); setInterval(update, 1000); }
+// Плавный скролл якорей (CSS scroll-behavior уже задан) document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => { link.addEventListener('click', e => { e.preventDefault(); const target = document.querySelector(link.getAttribute('href')); if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }); });
 
-// === ЗАПУСК === document.addEventListener("DOMContentLoaded", () => { startCountdown("countdown"); startCountdown("countdown-box");
+// Вибрация WhatsApp и параллакс фона const whatsapp = document.querySelector('.whatsapp-button'); let ticking = false; window.addEventListener('scroll', () => { // Параллакс-лифт фона document.body.style.backgroundPositionY = ${-window.scrollY * 0.2}px;
 
-// === ВИБРАЦИЯ WHATSAPP ПРИ СКРОЛЛЕ === const whatsapp = document.getElementById("whatsapp"); let vibrating = false; window.addEventListener("scroll", () => { if (!vibrating) { vibrating = true; whatsapp.classList.add("shake"); setTimeout(() => { whatsapp.classList.remove("shake"); vibrating = false; }, 600); } });
+// Вибрация кнопки
+if (!ticking) {
+  ticking = true;
+  whatsapp.classList.add('shake');
+  setTimeout(() => {
+    whatsapp.classList.remove('shake');
+    ticking = false;
+  }, 600);
+}
 
-// === ГАЛЕРЕЯ: ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ === const gallery = document.querySelector(".gallery, .gallery-scroll"); if (gallery) { gallery.addEventListener("wheel", (e) => { e.preventDefault(); gallery.scrollLeft += e.deltaY; }); }
+// Подсветка активного меню
+const sections = document.querySelectorAll('section[id]');
+let current = '';
+sections.forEach(sec => {
+  const top = sec.offsetTop - 100;
+  if (window.pageYOffset >= top) current = sec.id;
+});
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+});
 
-// === WELCOME FADE-IN === const welcome = document.querySelector("#welcome"); if (welcome) { welcome.classList.add("fade-in-visible"); }
+});
 
-// === ПЛАВНОЕ ПОЯВЛЕНИЕ БЛОКОВ === const faders = document.querySelectorAll(".section"); const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("fade-in-visible"); } }); }, { threshold: 0.1 });
+// Fade-in для секций const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('fade-in-visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.2 }); document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-faders.forEach(el => observer.observe(el));
-
-// === ПОДСВЕТКА АКТИВНОГО ЯКОРЯ === const sections = document.querySelectorAll("section[id]"), navLinks = document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll", () => { let current = ""; sections.forEach(section => { const sectionTop = section.offsetTop - 80; if (pageYOffset >= sectionTop) { current = section.getAttribute("id"); } }); navLinks.forEach(link => { link.classList.remove("active"); if (link.getAttribute("href") === #${current}) { link.classList.add("active"); } }); }); });
+// Горизонтальный скролл галереи колесом const gallery = document.querySelector('.gallery'); if (gallery) { gallery.addEventListener('wheel', e => { e.preventDefault(); gallery.scrollLeft += e.deltaY; }); } });
 
