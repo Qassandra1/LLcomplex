@@ -1,37 +1,97 @@
-// === ПАРАЛЛАКС, СЧЁТЧИКИ, ВИБРАЦИЯ, АНИМАЦИИ И СКРОЛЛ ===
+// === Инициализация всех эффектов после загрузки страницы ===
+document.addEventListener('DOMContentLoaded', () => {
+  // 1) Обратный отсчёт (2 таймера по 48 часов)
+  function startCountdown(id, hours) {
+    const el = document.getElementById(id);
+    // вычисляем дедлайн: либо из localStorage, либо сейчас + hours
+    const now = Date.now();
+    let deadline = parseInt(localStorage.getItem(id), 10);
+    if (isNaN(deadline) || deadline < now) {
+      deadline = now + hours * 3600_000;
+      localStorage.setItem(id, deadline);
+    }
+    const update = () => {
+      const diff = deadline - Date.now();
+      if (diff <= 0) {
+        el.textContent = '00:00:00';
+      } else {
+        const h = Math.floor(diff / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        el.textContent = 
+          String(h).padStart(2, '0') + ':' +
+          String(m).padStart(2, '0') + ':' +
+          String(s).padStart(2, '0');
+      }
+    };
+    update();
+    setInterval(update, 1000);
+  }
+  startCountdown('countdown', 48);
+  startCountdown('countdown-box', 48);
 
-// Инициализирует обратный отсчёт на 48 часов function startCountdown(id) { const element = document.getElementById(id); if (!element) return; const key = llc_deadline_${id}; let deadline = localStorage.getItem(key); if (!deadline) { deadline = Date.now() + 48 * 3600 * 1000; localStorage.setItem(key, deadline); } function update() { const now = Date.now(); const diff = deadline - now; if (diff <= 0) { element.textContent = '00:00:00'; return; } const h = String(Math.floor(diff / 3600000)).padStart(2, '0'); const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0'); const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0'); element.textContent = ${h}:${m}:${s}; } update(); setInterval(update, 1000); }
+  // 2) Появление блоков с классом .fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// По загрузке страницы document.addEventListener('DOMContentLoaded', () => { // Запускаем оба таймера startCountdown('countdown'); startCountdown('countdown-box');
+  // 3) Вибрация WhatsApp‑кнопки при скролле
+  const wa = document.querySelector('.whatsapp-button');
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking && wa) {
+      ticking = true;
+      wa.classList.add('shake');
+      setTimeout(() => {
+        wa.classList.remove('shake');
+        ticking = false;
+      }, 800);
+    }
+  });
 
-// Плавный скролл якорей (CSS scroll-behavior уже задан) document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => { link.addEventListener('click', e => { e.preventDefault(); const target = document.querySelector(link.getAttribute('href')); if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }); });
+  // 4) Drag‑scroll для галереи «До и После»
+  document.querySelectorAll('.gallery').forEach(gallery => {
+    let isDown = false, startX, scrollLeft;
+    gallery.addEventListener('mousedown', e => {
+      isDown = true;
+      gallery.classList.add('active');
+      startX = e.pageX - gallery.offsetLeft;
+      scrollLeft = gallery.scrollLeft;
+    });
+    ['mouseleave','mouseup'].forEach(evt => {
+      gallery.addEventListener(evt, () => {
+        isDown = false;
+        gallery.classList.remove('active');
+      });
+    });
+    gallery.addEventListener('mousemove', e => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - gallery.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      gallery.scrollLeft = scrollLeft - walk;
+    });
+  });
 
-// Вибрация WhatsApp и параллакс фона const whatsapp = document.querySelector('.whatsapp-button'); let ticking = false; window.addEventListener('scroll', () => { // Параллакс-лифт фона document.body.style.backgroundPositionY = ${-window.scrollY * 0.2}px;
-
-// Вибрация кнопки
-if (!ticking) {
-  ticking = true;
-  whatsapp.classList.add('shake');
-  setTimeout(() => {
-    whatsapp.classList.remove('shake');
-    ticking = false;
-  }, 600);
-}
-
-// Подсветка активного меню
-const sections = document.querySelectorAll('section[id]');
-let current = '';
-sections.forEach(sec => {
-  const top = sec.offsetTop - 100;
-  if (window.pageYOffset >= top) current = sec.id;
+  // 5) Подсвечивание активного пункта меню при скролле
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    const scrollY = window.pageYOffset;
+    sections.forEach(sec => {
+      const top = sec.offsetTop - 120;
+      const bottom = top + sec.offsetHeight;
+      const id = sec.getAttribute('id');
+      if (scrollY >= top && scrollY < bottom) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  });
 });
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
-});
-
-});
-
-// Fade-in для секций const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('fade-in-visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.2 }); document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-// Горизонтальный скролл галереи колесом const gallery = document.querySelector('.gallery'); if (gallery) { gallery.addEventListener('wheel', e => { e.preventDefault(); gallery.scrollLeft += e.deltaY; }); } });
-
