@@ -1,28 +1,26 @@
-// === Инициализация всех эффектов после загрузки страницы ===
+// === script.js ===
 document.addEventListener('DOMContentLoaded', () => {
-  // 1) Обратный отсчёт (2 таймера по 48 часов)
+  // 1. Countdown timers
   function startCountdown(id, hours) {
     const el = document.getElementById(id);
-    // вычисляем дедлайн: либо из localStorage, либо сейчас + hours
+    if (!el) return;
     const now = Date.now();
-    let deadline = parseInt(localStorage.getItem(id), 10);
+    const storageKey = 'deadline_' + id;
+    let deadline = parseInt(localStorage.getItem(storageKey), 10);
     if (isNaN(deadline) || deadline < now) {
-      deadline = now + hours * 3600_000;
-      localStorage.setItem(id, deadline);
+      deadline = now + hours * 3600 * 1000;
+      localStorage.setItem(storageKey, deadline);
     }
     const update = () => {
       const diff = deadline - Date.now();
       if (diff <= 0) {
         el.textContent = '00:00:00';
-      } else {
-        const h = Math.floor(diff / 3600000);
-        const m = Math.floor((diff % 3600000) / 60000);
-        const s = Math.floor((diff % 60000) / 1000);
-        el.textContent = 
-          String(h).padStart(2, '0') + ':' +
-          String(m).padStart(2, '0') + ':' +
-          String(s).padStart(2, '0');
+        return;
       }
+      const h = String(Math.floor(diff / 3600000)).padStart(2, '0');
+      const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+      const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+      el.textContent = `${h}:${m}:${s}`;
     };
     update();
     setInterval(update, 1000);
@@ -30,31 +28,36 @@ document.addEventListener('DOMContentLoaded', () => {
   startCountdown('countdown', 48);
   startCountdown('countdown-box', 48);
 
-  // 2) Появление блоков с классом .fade-in
+  // 2. Fade‑in on scroll
+  const welcome = document.querySelector('#welcome.fade-in');
+  if (welcome) welcome.classList.add('visible');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.2 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  document.querySelectorAll('.fade-in').forEach(el => {
+    if (el !== welcome) observer.observe(el);
+  });
 
-  // 3) Вибрация WhatsApp‑кнопки при скролле
-  const wa = document.querySelector('.whatsapp-button');
-  let ticking = false;
+  // 3. WhatsApp button vibration on scroll
+  const waBtn = document.querySelector('.whatsapp-button');
+  let isTicking = false;
   window.addEventListener('scroll', () => {
-    if (!ticking && wa) {
-      ticking = true;
-      wa.classList.add('shake');
+    if (waBtn && !isTicking) {
+      isTicking = true;
+      waBtn.classList.add('shake');
       setTimeout(() => {
-        wa.classList.remove('shake');
-        ticking = false;
+        waBtn.classList.remove('shake');
+        isTicking = false;
       }, 800);
     }
   });
 
-  // 4) Drag‑scroll для галереи «До и После»
+  // 4. Drag-to-scroll for galleries
   document.querySelectorAll('.gallery').forEach(gallery => {
     let isDown = false, startX, scrollLeft;
     gallery.addEventListener('mousedown', e => {
@@ -63,12 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
       startX = e.pageX - gallery.offsetLeft;
       scrollLeft = gallery.scrollLeft;
     });
-    ['mouseleave','mouseup'].forEach(evt => {
+    ['mouseup', 'mouseleave'].forEach(evt =>
       gallery.addEventListener(evt, () => {
         isDown = false;
         gallery.classList.remove('active');
-      });
-    });
+      })
+    );
     gallery.addEventListener('mousemove', e => {
       if (!isDown) return;
       e.preventDefault();
@@ -78,20 +81,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 5) Подсвечивание активного пункта меню при скролле
-  const sections = document.querySelectorAll('section[id]');
+  // 5. Smooth scroll & active menu highlight
   const navLinks = document.querySelectorAll('.nav-links a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+  const sections = document.querySelectorAll('section[id]');
   window.addEventListener('scroll', () => {
-    const scrollY = window.pageYOffset;
+    const y = window.pageYOffset;
+    let currentId = '';
     sections.forEach(sec => {
-      const top = sec.offsetTop - 120;
-      const bottom = top + sec.offsetHeight;
-      const id = sec.getAttribute('id');
-      if (scrollY >= top && scrollY < bottom) {
-        navLinks.forEach(a => a.classList.remove('active'));
-        const link = document.querySelector(`.nav-links a[href="#${id}"]`);
-        if (link) link.classList.add('active');
-      }
+      if (y >= sec.offsetTop - 120) currentId = sec.id;
+    });
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
     });
   });
 });
