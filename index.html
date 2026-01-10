@@ -14,10 +14,63 @@
 </head>
 <body>
   <!-- WhatsApp (закреплён снизу справа) -->
-  <a href="https://wa.me/89640105995" class="whatsapp-button" aria-label="Написать в WhatsApp">
-    <img src="images/whatsapp-icon.png" alt="WhatsApp">
-    <span class="whatsapp-tooltip">Написать нам</span>
-  </a>
+  <div class="whatsapp-float">
+    <a href="https://wa.me/89640105995" class="whatsapp-btn" aria-label="Написать в WhatsApp">
+      <img src="images/whatsapp-icon.png" alt="WhatsApp">
+      <span>Написать нам</span>
+    </a>
+    <span class="whatsapp-tooltip">Ответим за 5 минут</span>
+  </div>
+
+  <!-- LL-Доктор AI Ассистент -->
+  <div class="ll-doctor-float">
+    <button class="ll-doctor-btn" id="llDoctorBtn" aria-label="Открыть LL-Доктор">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+      </svg>
+    </button>
+    <span class="ll-doctor-tooltip">LL-Доктор — AI консультант</span>
+  </div>
+
+  <!-- LL-Доктор Chat Window -->
+  <div class="ll-doctor-chat" id="llDoctorChat">
+    <div class="ll-doctor-header">
+      <div class="ll-doctor-header-info">
+        <div class="ll-doctor-avatar">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="ll-doctor-name">LL-Доктор</div>
+          <div class="ll-doctor-status">AI-ассистент онлайн</div>
+        </div>
+      </div>
+      <button class="ll-doctor-close" id="llDoctorClose">&times;</button>
+    </div>
+    <div class="ll-doctor-disclaimer">
+      Это AI-ассистент, не настоящий врач. Для точного диагноза обратитесь к специалисту.
+    </div>
+    <div class="ll-doctor-messages" id="llDoctorMessages">
+      <div class="ll-doctor-message bot">
+        Здравствуйте! Я LL-Доктор — ваш AI-помощник. Могу рассказать о препарате LL-Complex, помочь подобрать курс лечения или ответить на вопросы о псориазе и других кожных заболеваниях. Чем могу помочь?
+      </div>
+    </div>
+    <div class="ll-doctor-quick-questions">
+      <button class="quick-question" data-question="Как принимать LL-Complex?">Как принимать?</button>
+      <button class="quick-question" data-question="Какой курс мне подойдёт?">Подобрать курс</button>
+      <button class="quick-question" data-question="Есть ли противопоказания?">Противопоказания</button>
+      <button class="quick-question" data-question="Когда будет результат?">Сроки результата</button>
+    </div>
+    <div class="ll-doctor-input-area">
+      <input type="text" class="ll-doctor-input" id="llDoctorInput" placeholder="Введите ваш вопрос...">
+      <button class="ll-doctor-send" id="llDoctorSend">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
 
   <!-- Навигация -->
   <header class="navbar">
