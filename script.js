@@ -1,102 +1,298 @@
-// script.js
+// LL-Complex Landing Page Script
 
-if (window.innerWidth > 1024) {
-  document.addEventListener('DOMContentLoaded', () => {
-
-    // === 1) Fade-in для всех секций с классом .fade-in ===
-    const faders = document.querySelectorAll('.fade-in');
-    const appearOpts = { threshold: 0.2, rootMargin: '0px 0px -50px 0px' };
-    const appearOnScroll = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          obs.unobserve(entry.target);
-        }
+document.addEventListener('DOMContentLoaded', () => {
+  
+  // === 1) Mobile Menu Toggle ===
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  const navLinks = document.querySelector('.nav-links');
+  
+  if (mobileMenuBtn && navLinks) {
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileMenuBtn.classList.toggle('active');
+    });
+    
+    // Close menu when clicking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
       });
-    }, appearOpts);
-    faders.forEach(el => appearOnScroll.observe(el));
+    });
+  }
 
-    // === 2) Smooth scroll и подсветка меню ===
-    const navLinks = document.querySelectorAll('.nav-links a');
-    const sections = document.querySelectorAll('section[id], footer#docs');
-    navLinks.forEach(link => {
-      link.addEventListener('click', e => {
+  // === 2) Smooth Scroll & Active Nav Highlight ===
+  const navLinksAll = document.querySelectorAll('.nav-links a, .footer-col a[href^="#"]');
+  const sections = document.querySelectorAll('section[id]');
+  
+  navLinksAll.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href.startsWith('#')) {
         e.preventDefault();
-        const tgt = document.querySelector(link.getAttribute('href'));
-        if (tgt) tgt.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(sec => {
-        if (window.pageYOffset >= sec.offsetTop - 120) {
-          current = sec.id;
+        const target = document.querySelector(href);
+        if (target) {
+          const headerOffset = 80;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
         }
-      });
-      navLinks.forEach(link => {
-        link.classList.toggle(
-          'active',
-          link.getAttribute('href') === `#${current}`
-        );
-      });
+      }
     });
-
-    // === 3) Drag-scroll галереи до/после ===
-    document.querySelectorAll('.gallery').forEach(gallery => {
-      let isDown = false, startX, scrollLeft;
-      gallery.addEventListener('mousedown', e => {
-        isDown = true;
-        startX = e.pageX - gallery.offsetLeft;
-        scrollLeft = gallery.scrollLeft;
-      });
-      ['mouseup', 'mouseleave'].forEach(evt =>
-        gallery.addEventListener(evt, () => (isDown = false))
-      );
-      gallery.addEventListener('mousemove', e => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - gallery.offsetLeft;
-        gallery.scrollLeft = scrollLeft - (x - startX) * 1.5;
-      });
-    });
-
-    // === 4) Вибрация WhatsApp при скролле ===
-    const wa = document.querySelector('.whatsapp-button');
-    let canShake = true;
-    window.addEventListener('scroll', () => {
-      if (!wa || !canShake) return;
-      canShake = false;
-      wa.classList.add('shake');
-      setTimeout(() => {
-        wa.classList.remove('shake');
-        canShake = true;
-      }, 500);
-    });
-
-    // === 5) Countdown, который точно отсчитывает и всегда мигает ===
-    function startCountdown(id, hours) {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const endTime = Date.now() + hours * 3600 * 1000;
-      // Добавляем класс, чтобы он всегда мигал
-      el.classList.add('blink');
-      // Функция обновления текста
-      const update = () => {
-        const diff = endTime - Date.now();
-        if (diff <= 0) {
-          el.textContent = '00:00:00';
-          return;
-        }
-        const h = String(Math.floor(diff / 3600000)).padStart(2, '0');
-        const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
-        const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
-        el.textContent = `${h}:${m}:${s}`;
-      };
-      update();
-      setInterval(update, 1000);
-    }
-    startCountdown('countdown', 48);
-    startCountdown('countdown-box', 48);
-
   });
+  
+  // Highlight active section in nav
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0px -70% 0px',
+    threshold: 0
+  };
+  
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, observerOptions);
+  
+  sections.forEach(section => navObserver.observe(section));
+
+  // === 3) Fade-in Animation on Scroll ===
+  const fadeElements = document.querySelectorAll('.section, .gallery-item, .review-card, .step-card, .guarantee-card, .order-card');
+  
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  
+  fadeElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    fadeObserver.observe(el);
+  });
+
+  // === 4) FAQ Accordion ===
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    
+    question.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      
+      // Close all other items
+      faqItems.forEach(otherItem => {
+        otherItem.classList.remove('active');
+      });
+      
+      // Toggle current item
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    });
+  });
+
+  // === 5) Countdown Timer ===
+  function startCountdown(elementId, hours) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+    
+    // Get or set end time in localStorage
+    const storageKey = `countdown_${elementId}`;
+    let endTime = localStorage.getItem(storageKey);
+    
+    if (!endTime || parseInt(endTime) < Date.now()) {
+      endTime = Date.now() + hours * 3600 * 1000;
+      localStorage.setItem(storageKey, endTime);
+    }
+    
+    function update() {
+      const now = Date.now();
+      const diff = parseInt(endTime) - now;
+      
+      if (diff <= 0) {
+        // Reset timer
+        endTime = Date.now() + hours * 3600 * 1000;
+        localStorage.setItem(storageKey, endTime);
+      }
+      
+      const totalSeconds = Math.floor(diff / 1000);
+      const h = Math.floor(totalSeconds / 3600);
+      const m = Math.floor((totalSeconds % 3600) / 60);
+      const s = totalSeconds % 60;
+      
+      element.textContent = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+    
+    update();
+    setInterval(update, 1000);
+  }
+  
+  startCountdown('countdown', 48);
+
+  // === 6) Navbar Background on Scroll ===
+  const navbar = document.querySelector('.navbar');
+  
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+      navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
+    } else {
+      navbar.style.background = 'rgba(10, 10, 10, 0.9)';
+      navbar.style.boxShadow = 'none';
+    }
+  });
+
+  // === 7) Gallery Drag Scroll (for touch devices) ===
+  const galleries = document.querySelectorAll('.gallery');
+  
+  galleries.forEach(gallery => {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    
+    gallery.addEventListener('mousedown', (e) => {
+      isDown = true;
+      gallery.style.cursor = 'grabbing';
+      startX = e.pageX - gallery.offsetLeft;
+      scrollLeft = gallery.scrollLeft;
+    });
+    
+    gallery.addEventListener('mouseleave', () => {
+      isDown = false;
+      gallery.style.cursor = 'grab';
+    });
+    
+    gallery.addEventListener('mouseup', () => {
+      isDown = false;
+      gallery.style.cursor = 'grab';
+    });
+    
+    gallery.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - gallery.offsetLeft;
+      const walk = (x - startX) * 2;
+      gallery.scrollLeft = scrollLeft - walk;
+    });
+  });
+
+  // === 8) WhatsApp Button Animation ===
+  const whatsappBtn = document.querySelector('.whatsapp-button');
+  
+  if (whatsappBtn) {
+    // Periodic attention animation
+    setInterval(() => {
+      whatsappBtn.querySelector('img').style.animation = 'shake 0.5s ease';
+      setTimeout(() => {
+        whatsappBtn.querySelector('img').style.animation = '';
+      }, 500);
+    }, 10000);
+  }
+
+  // === 9) Track CTA Clicks (for analytics) ===
+  const ctaButtons = document.querySelectorAll('.btn, .btn-order');
+  
+  ctaButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const buttonText = btn.textContent.trim();
+      const section = btn.closest('section')?.id || 'unknown';
+      
+      // Log for analytics (can be replaced with actual analytics code)
+      console.log(`CTA Click: "${buttonText}" in section "${section}"`);
+      
+      // You can add Google Analytics or other tracking here
+      // gtag('event', 'click', { 'event_category': 'CTA', 'event_label': buttonText });
+    });
+  });
+
+  // === 10) Lazy Load Images ===
+  const images = document.querySelectorAll('img[data-src]');
+  
+  const imageObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.dataset.src;
+        img.removeAttribute('data-src');
+        imageObserver.unobserve(img);
+      }
+    });
+  }, { rootMargin: '50px' });
+  
+  images.forEach(img => imageObserver.observe(img));
+
+  // === 11) Form Validation (if form is added later) ===
+  const forms = document.querySelectorAll('form');
+  
+  forms.forEach(form => {
+    form.addEventListener('submit', (e) => {
+      const inputs = form.querySelectorAll('input[required], textarea[required]');
+      let isValid = true;
+      
+      inputs.forEach(input => {
+        if (!input.value.trim()) {
+          isValid = false;
+          input.classList.add('error');
+        } else {
+          input.classList.remove('error');
+        }
+      });
+      
+      if (!isValid) {
+        e.preventDefault();
+        alert('Пожалуйста, заполните все обязательные поля');
+      }
+    });
+  });
+
+  // === 12) Preloader (optional) ===
+  window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+  });
+
+});
+
+// === Utility Functions ===
+
+// Debounce function for scroll events
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+// Throttle function for frequent events
+function throttle(func, limit) {
+  let inThrottle;
+  return function(...args) {
+    if (!inThrottle) {
+      func.apply(this, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
 }
