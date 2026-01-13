@@ -1,577 +1,512 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="LL-Complex — клинически подтверждённый препарат нового поколения для лечения псориаза. Результат у 8 из 10 пациентов. Натуральный состав.">
-  <meta name="keywords" content="псориаз, лечение псориаза, LL-Complex, кожные заболевания, дерматит, экзема">
-  <title>LL-Complex — лечение псориаза | Официальный сайт</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-  <script defer src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LL-Complex — клинически подтверждённый препарат нового поколения для лечения псориаза. Результат у 8 из 10 пациентов.">
+    <title>LL-Complex — лечение псориаза | Официальный сайт</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- WhatsApp (закреплён снизу справа) -->
-  <div class="whatsapp-float">
-    <a href="https://wa.me/89640105995" class="whatsapp-btn" aria-label="Написать в WhatsApp">
-      <img src="images/whatsapp-icon.png" alt="WhatsApp">
-      <span>Написать нам</span>
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">LL</span>
+                <span class="logo-text">Complex</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#about">О препарате</a>
+                <a href="#how-works">Как работает</a>
+                <a href="#results">Результаты</a>
+                <a href="#reviews">Отзывы</a>
+                <a href="#faq">FAQ</a>
+                <a href="#order" class="nav-cta">Заказать</a>
+            </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <span class="hero-badge">Клинически доказано</span>
+                <h1 class="hero-title">LL-COMPLEX — препарат нового поколения <span class="highlight">от псориаза</span></h1>
+                <p class="hero-subtitle">Клинически подтверждённое восстановление кожи при псориазе, аллергии, дерматитах и других кожных заболеваниях</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">8 из 10</span>
+                        <span class="stat-label">избавились от псориаза</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">2-3 недели</span>
+                        <span class="stat-label">до первых результатов</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">100%</span>
+                        <span class="stat-label">натуральный состав</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#order" class="btn btn-primary pulse">Заказать со скидкой</a>
+                    <a href="#about" class="btn btn-secondary">Узнать подробнее</a>
+                </div>
+                <p class="hero-disclaimer">*При условии строгого соблюдения полного курса без пропусков</p>
+            </div>
+            <div class="hero-image">
+                <img src="images/llcomplex-box.jpg" alt="LL-Complex упаковка">
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="problems" id="problems">
+        <div class="container">
+            <h2 class="section-title">Знакомо?</h2>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">✗</div>
+                    <p>Постоянный зуд и шелушение не дают нормально жить</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">✗</div>
+                    <p>Стесняетесь носить открытую одежду из-за пятен</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">✗</div>
+                    <p>Гормональные мази дают только временный эффект</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">✗</div>
+                    <p>Дорогостоящее лечение не приносит результата</p>
+                </div>
+            </div>
+            <div class="solution-box">
+                <h3>LL-Complex решает эти проблемы изнутри</h3>
+                <p>Не маскирует симптомы, а устраняет причину — дефицит минералов на клеточном уровне</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Что такое LL-Complex</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p class="about-lead">LL-Complex — это жидкий минеральный комплекс на основе кальция, обогащённый бором, селеном, магнием, натрием, калием и хлором.</p>
+                    <p>Препарат разработан для восполнения дефицита минералов, который является одной из ключевых причин кожных заболеваний. Жидкая форма обеспечивает максимальное усвоение — до 98%.</p>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>Проникает на клеточном уровне</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>Запускает естественные процессы восстановления</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>Не содержит гормонов и химии</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>Безопасен для детей и беременных</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="images/llcomplex-bottles.png" alt="LL-Complex флаконы">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-works" id="how-works">
+        <div class="container">
+            <h2 class="section-title">Как работает LL-Complex</h2>
+            <p class="section-subtitle">4 этапа восстановления здоровья кожи</p>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Восполнение дефицита</h3>
+                    <p>Минералы в жидкой форме усваиваются на 98% и восполняют дефицит кальция и микроэлементов</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Нормализация обмена</h3>
+                    <p>Восстанавливается минеральный баланс, нормализуется работа иммунной системы</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Регенерация кожи</h3>
+                    <p>Клетки кожи получают необходимое питание и начинают обновляться</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Стойкий результат</h3>
+                    <p>При прохождении полного курса эффект сохраняется надолго</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conditions Section -->
+    <section class="conditions" id="conditions">
+        <div class="container">
+            <h2 class="section-title">Кому подходит LL-Complex</h2>
+            <div class="conditions-grid">
+                <div class="condition-card main-condition">
+                    <img src="images/before-leg.jpeg" alt="Псориаз">
+                    <div class="condition-content">
+                        <h3>При псориазе</h3>
+                        <p>Любая стадия заболевания. Эффективен даже при застарелых формах</p>
+                    </div>
+                </div>
+                <div class="condition-card">
+                    <img src="images/pregnant-woman.jpeg" alt="Беременным">
+                    <div class="condition-content">
+                        <h3>Беременным</h3>
+                        <p>Безопасен для мамы и малыша</p>
+                    </div>
+                </div>
+                <div class="condition-card">
+                    <img src="images/nebulizer-device.jpeg" alt="Детям">
+                    <div class="condition-content">
+                        <h3>Детям</h3>
+                        <p>Натуральный состав без побочных эффектов</p>
+                    </div>
+                </div>
+            </div>
+            <div class="conditions-list">
+                <h3>Также эффективен при:</h3>
+                <div class="conditions-tags">
+                    <span class="condition-tag">Экзема</span>
+                    <span class="condition-tag">Дерматит</span>
+                    <span class="condition-tag">Аллергия</span>
+                    <span class="condition-tag">Очищение организма</span>
+                    <span class="condition-tag">Ингаляции</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results" id="results">
+        <div class="container">
+            <h2 class="section-title">Реальные результаты</h2>
+            <p class="section-subtitle">Фотографии наших клиентов до и после курса LL-Complex</p>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-images">
+                        <div class="result-before">
+                            <img src="images/before-leg.jpeg" alt="До лечения">
+                            <span class="result-label">ДО</span>
+                        </div>
+                        <div class="result-after">
+                            <img src="images/after-leg.jpeg" alt="После лечения">
+                            <span class="result-label after">ПОСЛЕ</span>
+                        </div>
+                    </div>
+                    <p class="result-desc">Псориаз на ногах — 3 месяца курса</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-images">
+                        <div class="result-before">
+                            <img src="images/before-belly.jpeg" alt="До лечения">
+                            <span class="result-label">ДО</span>
+                        </div>
+                        <div class="result-after">
+                            <img src="images/after-belly.jpeg" alt="После лечения">
+                            <span class="result-label after">ПОСЛЕ</span>
+                        </div>
+                    </div>
+                    <p class="result-desc">Псориаз на теле — 2 месяца курса</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-images">
+                        <div class="result-before">
+                            <img src="images/before-head.jpeg" alt="До лечения">
+                            <span class="result-label">ДО</span>
+                        </div>
+                        <div class="result-after">
+                            <img src="images/after-head.jpeg" alt="После лечения">
+                            <span class="result-label after">ПОСЛЕ</span>
+                        </div>
+                    </div>
+                    <p class="result-desc">Псориаз кожи головы — 2.5 месяца курса</p>
+                </div>
+            </div>
+            <div class="results-cta">
+                <a href="#order" class="btn btn-primary">Хочу такой же результат</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title">Отзывы наших клиентов</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="images/review-blogger-result.jpg" alt="Елена">
+                        <div>
+                            <span class="review-name">Елена К.</span>
+                            <span class="review-info">Псориаз 15 лет</span>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Страдала от псориаза 15 лет. Перепробовала всё — мази, уколы, санатории. LL-Complex — первое средство, которое реально помогло. Через месяц бляшки начали светлеть, через 3 — практически исчезли."</p>
+                </div>
+                <div class="review-card featured">
+                    <div class="review-header">
+                        <img src="images/review-doctor-dermatologist.jpg" alt="Доктор">
+                        <div>
+                            <span class="review-name">Андрей М.</span>
+                            <span class="review-info">Врач-дерматолог</span>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Как дерматолог, изначально относился скептически. Но результаты моих пациентов говорят сами за себя. Рекомендую LL-Complex как дополнение к основной терапии."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="images/review-mom-allergy.jpg" alt="Мария">
+                        <div>
+                            <span class="review-name">Мария С.</span>
+                            <span class="review-info">Мама, аллергия у ребёнка</span>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"У дочки была сильная аллергия с рождения. Постоянные высыпания, зуд. После курса LL-Complex кожа очистилась, ребёнок наконец-то спит спокойно."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Частые вопросы</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Как принимать LL-Complex?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Принимать по 1 столовой ложке (15 мл) 2 раза в день за 30 минут до еды. Курс лечения составляет 90 дней без пропусков.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Есть ли противопоказания?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>LL-Complex — натуральный минеральный комплекс без гормонов. Противопоказания: индивидуальная непереносимость компонентов.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Можно ли принимать детям и беременным?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Да, LL-Complex безопасен для детей и беременных женщин благодаря полностью натуральному составу.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Когда будет виден результат?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Первые улучшения обычно заметны через 2-3 недели регулярного приёма. Для стойкого результата рекомендуется пройти полный курс — 90 дней.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Как осуществляется доставка?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Доставка по всей России курьерской службой или почтой. Срок: 3-7 дней. Оплата при получении.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Есть ли гарантия результата?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Если в течение 30 дней вы не увидите улучшений при соблюдении рекомендаций, мы вернём деньги.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section class="order" id="order">
+        <div class="container">
+            <h2 class="section-title">Закажите LL-Complex сейчас</h2>
+            <p class="section-subtitle">Выберите подходящий курс и начните путь к здоровой коже</p>
+            <div class="order-grid">
+                <div class="order-card">
+                    <span class="order-badge">Попробовать</span>
+                    <h3>1 флакон</h3>
+                    <div class="order-price">
+                        <span class="price-old">3 500 ₽</span>
+                        <span class="price-new">2 990 ₽</span>
+                    </div>
+                    <p class="order-desc">На 1 месяц приёма</p>
+                    <a href="https://wa.me/89640105995?text=Здравствуйте!%20Хочу%20заказать%201%20флакон%20LL-Complex" class="btn btn-outline">Заказать</a>
+                </div>
+                <div class="order-card featured">
+                    <span class="order-badge">Выгодно</span>
+                    <h3>3 флакона</h3>
+                    <div class="order-price">
+                        <span class="price-old">10 500 ₽</span>
+                        <span class="price-new">7 990 ₽</span>
+                    </div>
+                    <p class="order-desc">Полный курс на 3 месяца</p>
+                    <p class="order-savings">Экономия 2 510 ₽</p>
+                    <a href="https://wa.me/89640105995?text=Здравствуйте!%20Хочу%20заказать%203%20флакона%20LL-Complex" class="btn btn-primary pulse">Заказать курс</a>
+                </div>
+                <div class="order-card">
+                    <span class="order-badge">Оптом</span>
+                    <h3>6 флаконов</h3>
+                    <div class="order-price">
+                        <span class="price-old">21 000 ₽</span>
+                        <span class="price-new">14 990 ₽</span>
+                    </div>
+                    <p class="order-desc">Для всей семьи</p>
+                    <p class="order-savings">Экономия 6 010 ₽</p>
+                    <a href="https://wa.me/89640105995?text=Здравствуйте!%20Хочу%20заказать%206%20флаконов%20LL-Complex" class="btn btn-outline">Узнать цену</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantees Section -->
+    <section class="guarantees" id="guarantees">
+        <div class="container">
+            <h2 class="section-title">Наши гарантии</h2>
+            <div class="guarantees-grid">
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">✓</div>
+                    <h3>Оригинальный продукт</h3>
+                    <p>Только сертифицированная продукция от официального производителя</p>
+                </div>
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">✓</div>
+                    <h3>Возврат денег</h3>
+                    <p>Вернём деньги в течение 30 дней, если не увидите результат</p>
+                </div>
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">✓</div>
+                    <h3>Быстрая доставка</h3>
+                    <p>Доставим в любой город России за 3-7 дней</p>
+                </div>
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">✓</div>
+                    <h3>Консультация</h3>
+                    <p>Бесплатная поддержка на протяжении всего курса</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-icon">LL</span>
+                        <span class="logo-text">Complex</span>
+                    </a>
+                    <p>Натуральный минеральный комплекс для восстановления здоровья кожи</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Навигация</h4>
+                    <a href="#about">О препарате</a>
+                    <a href="#how-works">Как работает</a>
+                    <a href="#results">Результаты</a>
+                    <a href="#reviews">Отзывы</a>
+                    <a href="#faq">Вопросы</a>
+                </div>
+                <div class="footer-contacts">
+                    <h4>Контакты</h4>
+                    <a href="https://wa.me/89640105995">WhatsApp: +7 964 010-59-95</a>
+                    <a href="tel:+79640105995">Телефон: +7 964 010-59-95</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 LL-Complex. Все права защищены.</p>
+                <p class="footer-disclaimer">Не является лекарственным средством. Перед применением проконсультируйтесь со специалистом.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/89640105995" class="whatsapp-float">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
-    <span class="whatsapp-tooltip">Ответим за 5 минут</span>
-  </div>
 
-  <!-- LL-Доктор AI Ассистент -->
-  <div class="ll-doctor-float">
-    <button class="ll-doctor-btn" id="llDoctorBtn" aria-label="Открыть LL-Доктор">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-      </svg>
+    <!-- LL-Doctor Float -->
+    <button class="ll-doctor-float" id="llDoctorBtn">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+        <span class="ll-doctor-label">LL-Доктор</span>
     </button>
-    <span class="ll-doctor-tooltip">LL-Доктор — AI консультант</span>
-  </div>
 
-  <!-- LL-Доктор Chat Window -->
-  <div class="ll-doctor-chat" id="llDoctorChat">
-    <div class="ll-doctor-header">
-      <div class="ll-doctor-header-info">
-        <div class="ll-doctor-avatar">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-          </svg>
-        </div>
-        <div>
-          <div class="ll-doctor-name">LL-Доктор</div>
-          <div class="ll-doctor-status">AI-ассистент онлайн</div>
-        </div>
-      </div>
-      <button class="ll-doctor-close" id="llDoctorClose">&times;</button>
-    </div>
-    <div class="ll-doctor-disclaimer">
-      Это AI-ассистент, не настоящий врач. Для точного диагноза обратитесь к специалисту.
-    </div>
-    <div class="ll-doctor-messages" id="llDoctorMessages">
-      <div class="ll-doctor-message bot">
-        Здравствуйте! Я LL-Доктор — ваш AI-помощник. Могу рассказать о препарате LL-Complex, помочь подобрать курс лечения или ответить на вопросы о псориазе и других кожных заболеваниях. Чем могу помочь?
-      </div>
-    </div>
-    <div class="ll-doctor-quick-questions">
-      <button class="quick-question" data-question="Как принимать LL-Complex?">Как принимать?</button>
-      <button class="quick-question" data-question="Какой курс мне подойдёт?">Подобрать курс</button>
-      <button class="quick-question" data-question="Есть ли противопоказания?">Противопоказания</button>
-      <button class="quick-question" data-question="Когда будет результат?">Сроки результата</button>
-    </div>
-    <div class="ll-doctor-input-area">
-      <input type="text" class="ll-doctor-input" id="llDoctorInput" placeholder="Введите ваш вопрос...">
-      <button class="ll-doctor-send" id="llDoctorSend">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-        </svg>
-      </button>
-    </div>
-  </div>
-
-  <!-- Навигация -->
-  <header class="navbar">
-    <div class="logo">LL-Complex</div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#about">О препарате</a></li>
-        <li><a href="#how-it-works">Как работает</a></li>
-        <li><a href="#results">Результаты</a></li>
-        <li><a href="#reviews">Отзывы</a></li>
-        <li><a href="#faq">Вопросы</a></li>
-        <li><a href="#order" class="nav-cta">Заказать</a></li>
-      </ul>
-    </nav>
-    <button class="mobile-menu-btn" aria-label="Меню">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </header>
-
-  <!-- Hero секция -->
-  <section id="welcome" class="welcome fade-in">
-    <div class="hero-content">
-      <div class="hero-badge">Клинически доказано</div>
-      <h1 class="main-title">LL-COMPLEX — препарат нового поколения от псориаза</h1>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <span class="stat-number">8 из 10</span>
-          <span class="stat-label">пациентов избавились от псориаза</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">2-3</span>
-          <span class="stat-label">недели до первых результатов</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">100%</span>
-          <span class="stat-label">натуральный состав</span>
-        </div>
-      </div>
-      <p class="hero-description">Клинически подтверждённое восстановление кожи при псориазе, аллергии, дерматитах и других кожных заболеваниях</p>
-      <div class="hero-cta">
-        <a href="#order" class="btn btn-primary pulse">Заказать со скидкой</a>
-        <a href="#how-it-works" class="btn btn-secondary">Узнать подробнее</a>
-      </div>
-      <p class="disclaimer">*При условии строгого соблюдения полного курса без пропусков</p>
-    </div>
-  </section>
-
-  <!-- Проблема и решение -->
-  <section id="problem" class="section problem-section">
-    <div class="container">
-      <h2 class="section-title">Знакомо?</h2>
-      <div class="problem-grid">
-        <div class="problem-card">
-          <div class="problem-icon">✗</div>
-          <p>Постоянный зуд и шелушение не дают нормально жить</p>
-        </div>
-        <div class="problem-card">
-          <div class="problem-icon">✗</div>
-          <p>Стесняетесь носить открытую одежду из-за пятен</p>
-        </div>
-        <div class="problem-card">
-          <div class="problem-icon">✗</div>
-          <p>Гормональные мази дают только временный эффект</p>
-        </div>
-        <div class="problem-card">
-          <div class="problem-icon">✗</div>
-          <p>Дорогостоящее лечение не приносит результата</p>
-        </div>
-      </div>
-      <div class="solution-block">
-        <h3>LL-Complex решает эти проблемы изнутри</h3>
-        <p>Не маскирует симптомы, а устраняет причину — дефицит минералов на клеточном уровне</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Что такое LL-Complex -->
-  <section id="about" class="section about-section">
-    <div class="container">
-      <h2 class="section-title">Что такое LL-Complex</h2>
-      <div class="about-content">
-        <div class="about-text-block">
-          <p class="about-lead">LL-Complex — это жидкий минеральный комплекс на основе кальция, обогащённый бором, селеном, магнием, натрием, калием и хлором.</p>
-          <ul class="about-features">
-            <li><span class="check-icon">✓</span> Проникает на клеточном уровне</li>
-            <li><span class="check-icon">✓</span> Запускает естественные процессы восстановления</li>
-            <li><span class="check-icon">✓</span> Не содержит гормонов и химии</li>
-            <li><span class="check-icon">✓</span> Безопасен для детей и беременных</li>
-          </ul>
-        </div>
-        <div class="about-video">
-          <div class="video-frame">
-            <iframe src="https://www.youtube.com/embed/JiVxcW1wnOc" allowfullscreen title="Что такое LL-Complex"></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Как это работает -->
-  <section id="how-it-works" class="section how-section">
-    <div class="container">
-      <h2 class="section-title">Как работает LL-Complex</h2>
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-number">1</div>
-          <h3>Восполнение дефицита</h3>
-          <p>Минералы в жидкой форме усваиваются на 98% и восполняют дефицит кальция и микроэлементов</p>
-        </div>
-        <div class="step-card">
-          <div class="step-number">2</div>
-          <h3>Нормализация обмена</h3>
-          <p>Восстанавливается минеральный баланс, нормализуется работа иммунной системы</p>
-        </div>
-        <div class="step-card">
-          <div class="step-number">3</div>
-          <h3>Регенерация кожи</h3>
-          <p>Клетки кожи получают необходимое питание и начинают обновляться</p>
-        </div>
-        <div class="step-card">
-          <div class="step-number">4</div>
-          <h3>Стойкий результат</h3>
-          <p>При прохождении полного курса эффект сохраняется надолго</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Для кого -->
-  <section id="audience" class="section audience-section">
-    <div class="container">
-      <h2 class="section-title">Кому подходит LL-Complex</h2>
-      <div class="audience-grid">
-        <div class="audience-card">
-          <img src="images/before-leg.jpeg" alt="Лечение псориаза">
-          <h3>При псориазе</h3>
-          <p>Любая стадия заболевания. Эффективен даже при застарелых формах</p>
-        </div>
-        <div class="audience-card">
-          <img src="images/pregnant-woman.jpeg" alt="Для беременных">
-          <h3>Для беременных</h3>
-          <p>100% натуральный состав безопасен для мамы и малыша</p>
-        </div>
-        <div class="audience-card">
-          <img src="images/nebulizer-device.jpeg" alt="Для ингаляций">
-          <h3>Для детей</h3>
-          <p>Подходит при аллергических высыпаниях и дерматитах у детей</p>
-        </div>
-      </div>
-      <div class="audience-list">
-        <h3>Также эффективен при:</h3>
-        <ul>
-          <li>Экземе и дерматитах</li>
-          <li>Аллергических реакциях</li>
-          <li>Для очищения организма (дренаж)</li>
-          <li>Для восстановления кожи после обострений</li>
-          <li>Для ингаляций (по согласованию с врачом)</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Результаты До и После -->
-  <section id="results" class="section results-section">
-    <div class="container">
-      <h2 class="section-title">Реальные результаты наших клиентов</h2>
-      <p class="section-subtitle">Фотографии предоставлены с согласия пациентов</p>
-      <div class="gallery">
-        <div class="gallery-item">
-          <div class="gallery-image">
-            <img src="images/before-head.jpeg" alt="До лечения – голова">
-            <span class="gallery-label">ДО</span>
-          </div>
-          <div class="gallery-image">
-            <img src="images/after-head.jpeg" alt="После лечения – голова">
-            <span class="gallery-label gallery-label-after">ПОСЛЕ</span>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-image">
-            <img src="images/before-belly.jpeg" alt="До лечения – живот">
-            <span class="gallery-label">ДО</span>
-          </div>
-          <div class="gallery-image">
-            <img src="images/after-belly.jpeg" alt="После лечения – живот">
-            <span class="gallery-label gallery-label-after">ПОСЛЕ</span>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-image">
-            <img src="images/before-leg.jpeg" alt="До лечения – нога">
-            <span class="gallery-label">ДО</span>
-          </div>
-          <div class="gallery-image">
-            <img src="images/after-leg.jpeg" alt="После лечения – нога">
-            <span class="gallery-label gallery-label-after">ПОСЛЕ</span>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-image">
-            <img src="images/before-boy.jpeg" alt="До лечения – спина">
-            <span class="gallery-label">ДО</span>
-          </div>
-          <div class="gallery-image">
-            <img src="images/after-boy.jpeg" alt="После лечения – спина">
-            <span class="gallery-label gallery-label-after">ПОСЛЕ</span>
-          </div>
-        </div>
-      </div>
-      <a href="#order" class="btn btn-primary">Хочу такой же результат</a>
-    </div>
-  </section>
-
-  <!-- Курс лечения -->
-  <section id="treatment" class="section treatment-section">
-    <div class="container">
-      <h2 class="section-title">Курс лечения</h2>
-      <div class="treatment-content">
-        <div class="treatment-image">
-          <img src="images/llcomplex-box.jpg" alt="Бокс LL-Complex">
-        </div>
-        <div class="treatment-info">
-          <div class="video-frame">
-            <iframe src="https://www.youtube.com/embed/Gi2N-qT4loM" allowfullscreen title="Курс лечения LL-Complex"></iframe>
-          </div>
-          <div class="treatment-details">
-            <div class="treatment-stage">
-              <h3>Первая стадия псориаза</h3>
-              <p>Полный курс — 90 дней (1 бокс)</p>
+    <!-- LL-Doctor Chat -->
+    <div class="ll-doctor-chat" id="llDoctorChat">
+        <div class="ll-doctor-header">
+            <div class="ll-doctor-info">
+                <div class="ll-doctor-avatar">
+                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+                </div>
+                <div>
+                    <div class="ll-doctor-name">LL-Доктор</div>
+                    <div class="ll-doctor-status">AI-ассистент онлайн</div>
+                </div>
             </div>
-            <div class="treatment-stage">
-              <h3>Вторая и третья стадия</h3>
-              <p>Курс продлевается индивидуально</p>
+            <button class="ll-doctor-close" id="llDoctorClose">×</button>
+        </div>
+        <div class="ll-doctor-disclaimer">
+            ⚠️ Это AI-ассистент, не настоящий врач. Для точного диагноза обратитесь к специалисту.
+        </div>
+        <div class="ll-doctor-messages" id="llDoctorMessages">
+            <div class="ll-doctor-message bot">
+                Здравствуйте! Я LL-Доктор — ваш AI-помощник. Могу рассказать о препарате LL-Complex, помочь подобрать курс или ответить на вопросы о псориазе. Чем могу помочь?
             </div>
-            <div class="treatment-result">
-              <p><strong>Видимый эффект</strong> уже через 2–3 недели при регулярном приёме</p>
-            </div>
-          </div>
         </div>
-      </div>
+        <div class="ll-doctor-quick">
+            <button class="quick-btn" data-q="Как принимать LL-Complex?">Как принимать?</button>
+            <button class="quick-btn" data-q="Какой курс мне подойдёт?">Подобрать курс</button>
+            <button class="quick-btn" data-q="Есть ли противопоказания?">Противопоказания</button>
+            <button class="quick-btn" data-q="Когда будет результат?">Сроки результата</button>
+        </div>
+        <div class="ll-doctor-input-area">
+            <input type="text" class="ll-doctor-input" id="llDoctorInput" placeholder="Введите ваш вопрос...">
+            <button class="ll-doctor-send" id="llDoctorSend">
+                <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
+        </div>
     </div>
-  </section>
 
-  <!-- Отзывы -->
-  <section id="reviews" class="section reviews-section">
-    <div class="container">
-      <h2 class="section-title">Отзывы наших клиентов</h2>
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="review-image">
-            <img src="images/review-mom-allergy.jpg" alt="Отзыв мамы">
-          </div>
-          <div class="review-content">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">«У сына была сильная аллергия. Уже после первого курса началось улучшение. Прошли два курса — кожа полностью восстановилась.»</p>
-            <p class="review-author">Мария, мама</p>
-          </div>
-        </div>
-        <div class="review-card">
-          <div class="review-image">
-            <img src="images/review-doctor-dermatologist.jpg" alt="Отзыв дерматолога">
-          </div>
-          <div class="review-content">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">«Я рекомендую LL-Complex своим пациентам. Он показывает лучшие результаты среди препаратов, которые я проверяла.»</p>
-            <p class="review-author">Врач-дерматолог</p>
-          </div>
-        </div>
-        <div class="review-card">
-          <div class="review-image">
-            <img src="images/review-blogger-result.jpg" alt="Отзыв блогера">
-          </div>
-          <div class="review-content">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">«Очищение организма и кожи, улучшение самочувствия и энергии. LL-Complex — мой личный выбор.»</p>
-            <p class="review-author">Блогер @cheirnysheva</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="section faq-section">
-    <div class="container">
-      <h2 class="section-title">Частые вопросы</h2>
-      <div class="faq-list">
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Как принимать LL-Complex?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Принимать по 1 столовой ложке 2 раза в день за 30 минут до еды. Курс лечения — 90 дней без пропусков. Подробная инструкция прилагается к каждой упаковке.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Есть ли противопоказания?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>LL-Complex имеет полностью натуральный состав и не имеет строгих противопоказаний. Однако при индивидуальной непереносимости компонентов рекомендуется консультация врача.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Можно ли принимать детям и беременным?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Да, препарат безопасен для детей и беременных женщин благодаря 100% натуральному составу. Для детей дозировка корректируется в зависимости от возраста.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Когда будет виден результат?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Первые улучшения заметны уже через 2-3 недели регулярного приёма. Полный курс составляет 90 дней для достижения стойкого результата.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Как осуществляется доставка?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Доставка осуществляется по всей России транспортными компаниями СДЭК, Почта России или курьером. Срок доставки 3-7 дней в зависимости от региона. Оплата при получении.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Есть ли гарантия результата?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Мы гарантируем результат при строгом соблюдении полного курса без пропусков. 8 из 10 пациентов полностью избавляются от псориаза. Если препарат вам не подошёл, мы вернём деньги.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Блок заказа -->
-  <section id="order" class="section order-section">
-    <div class="container">
-      <h2 class="section-title">Закажите LL-Complex сейчас</h2>
-      <div class="order-grid">
-        <!-- Одна бутылка -->
-        <div class="order-card">
-          <div class="order-badge">Попробовать</div>
-          <h3>1 бутылка</h3>
-          <div class="order-image">
-            <img src="images/llcomplex-bottles.png" alt="LL-Complex бутылка">
-          </div>
-          <div class="order-price">
-            <span class="old-price">3 500 ₽</span>
-            <span class="new-price">2 599 ₽</span>
-          </div>
-          <p class="order-note">Для начала курса</p>
-          <a href="https://wa.me/89640105995?text=Здравствуйте!%20Хочу%20заказать%201%20бутылку%20LL-Complex" class="btn btn-order">Заказать</a>
-        </div>
-        <!-- Полный курс -->
-        <div class="order-card order-card-featured">
-          <div class="order-badge order-badge-hot">Выгодно</div>
-          <h3>Полный курс (бокс)</h3>
-          <div class="order-image">
-            <img src="images/llcomplex-box.jpg" alt="LL-Complex бокс">
-          </div>
-          <div class="order-price">
-            <span class="old-price">47 000 ₽</span>
-            <span class="new-price">40 000 ₽</span>
-          </div>
-          <p class="order-savings">Экономия 7 000 ₽</p>
-          <p class="order-note">90 дней — полный курс первой стадии</p>
-          <a href="https://wa.me/89640105995?text=Здравствуйте!%20Хочу%20заказать%20полный%20курс%20(бокс)%20LL-Complex" class="btn btn-order btn-order-featured">Заказать курс</a>
-        </div>
-        <!-- Оптом -->
-        <div class="order-card">
-          <div class="order-badge">Оптом</div>
-          <h3>От 10 бутылок</h3>
-          <div class="order-image">
-            <img src="images/llcomplex-bottles.png" alt="LL-Complex оптом">
-          </div>
-          <div class="order-price">
-            <span class="new-price">Индивидуальная цена</span>
-          </div>
-          <p class="order-note">Скидка рассчитывается персонально</p>
-          <a href="https://wa.me/89640105995?text=Здравствуйте!%20Интересует%20оптовая%20закупка%20LL-Complex%20(от%2010%20бутылок)" class="btn btn-order">Узнать цену</a>
-        </div>
-      </div>
-      <div class="countdown-wrapper">
-        <p>До конца акции:</p>
-        <div class="countdown" id="countdown"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Гарантии -->
-  <section id="guarantees" class="section guarantees-section">
-    <div class="container">
-      <h2 class="section-title">Наши гарантии</h2>
-      <div class="guarantees-grid">
-        <div class="guarantee-card">
-          <div class="guarantee-icon">✓</div>
-          <h3>Оригинальный продукт</h3>
-          <p>Официальный дистрибьютор на территории РФ. Все документы и сертификаты в наличии</p>
-        </div>
-        <div class="guarantee-card">
-          <div class="guarantee-icon">✓</div>
-          <h3>Возврат денег</h3>
-          <p>Если препарат не подошёл — вернём деньги в течение 14 дней</p>
-        </div>
-        <div class="guarantee-card">
-          <div class="guarantee-icon">✓</div>
-          <h3>Безопасная оплата</h3>
-          <p>Оплата при получении. Вы платите только после проверки товара</p>
-        </div>
-        <div class="guarantee-card">
-          <div class="guarantee-icon">✓</div>
-          <h3>Быстрая доставка</h3>
-          <p>Отправка в день заказа. Доставка по России 3-7 дней</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Документы -->
-  <section id="docs" class="section docs-section">
-    <div class="container">
-      <h2 class="section-title">Документы и сертификаты</h2>
-      <p class="docs-subtitle">LL-Complex распространяется исключительно через официального дистрибьютора на территории РФ</p>
-      <div class="docs-grid">
-        <a href="docs/sertifikat.pdf" target="_blank" class="doc-card">
-          <div class="doc-icon">📄</div>
-          <span>Сертификат качества</span>
-        </a>
-        <a href="docs/protokol.pdf" target="_blank" class="doc-card">
-          <div class="doc-icon">📄</div>
-          <span>Протокол испытаний</span>
-        </a>
-        <a href="docs/deklaraciya.pdf" target="_blank" class="doc-card">
-          <div class="doc-icon">📄</div>
-          <span>Декларация о соответствии</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Финальный CTA -->
-  <section id="final-cta" class="section final-cta-section">
-    <div class="container">
-      <h2>Готовы избавиться от псориаза?</h2>
-      <p>Свяжитесь с нами прямо сейчас и получите бесплатную консультацию</p>
-      <a href="https://wa.me/89640105995?text=Здравствуйте!%20Хочу%20узнать%20подробнее%20о%20LL-Complex" class="btn btn-primary btn-large">Написать в WhatsApp</a>
-    </div>
-  </section>
-
-  <!-- Футер -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <div class="footer-logo">LL-Complex</div>
-          <p>Официальный дистрибьютор препарата LL-Complex на территории Российской Федерации</p>
-        </div>
-        <div class="footer-col">
-          <h4>Навигация</h4>
-          <ul>
-            <li><a href="#about">О препарате</a></li>
-            <li><a href="#how-it-works">Как работает</a></li>
-            <li><a href="#results">Результаты</a></li>
-            <li><a href="#reviews">Отзывы</a></li>
-            <li><a href="#faq">Вопросы</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Контакты</h4>
-          <ul>
-            <li><a href="https://wa.me/89640105995">WhatsApp: +7 964 010-59-95</a></li>
-            <li><a href="tel:+79640105995">Телефон: +7 964 010-59-95</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Документы</h4>
-          <ul>
-            <li><a href="docs/sertifikat.pdf" target="_blank">Сертификат качества</a></li>
-            <li><a href="docs/protokol.pdf" target="_blank">Протокол испытаний</a></li>
-            <li><a href="docs/deklaraciya.pdf" target="_blank">Декларация о соответствии</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 LL-Complex. Все права защищены.</p>
-        <p class="footer-disclaimer">Перед применением рекомендуется консультация специалиста. Не является лекарственным средством.</p>
-      </div>
-    </div>
-  </footer>
+    <script src="script.js"></script>
 </body>
 </html>
