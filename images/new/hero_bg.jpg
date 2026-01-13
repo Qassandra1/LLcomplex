@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 — Страница не найдена | LL COMPLEX</title>
+  <meta name="description" content="Страница не найдена. Вернитесь на главную LL COMPLEX или посетите разделы: О продукте, Блог, Контакты." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://ll-complex.ru/" />
+  <link rel="stylesheet" href="/legal-styles.css" />
+</head>
+<body>
+  <header class="legal-header">
+    <div class="container">
+      <a href="/" class="logo-link" aria-label="LL COMPLEX — на главную">
+        <img src="/logo.png" alt="LL COMPLEX логотип" width="120" height="120" loading="lazy" />
+      </a>
+    </div>
+  </header>
+
+  <main class="container legal-content" style="padding: 40px 0;">
+    <article>
+      <h1>404 — Страница не найдена</h1>
+      <p>К сожалению, запрашиваемая страница не существует или была удалена.</p>
+      <nav aria-label="Полезные ссылки">
+        <ul>
+          <li><a href="/">Главная</a></li>
+          <li><a href="/o-produkte">О продукте</a></li>
+          <li><a href="/blog">Блог</a></li>
+          <li><a href="/kontakty">Контакты</a></li>
+        </ul>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="legal-footer">
+    <div class="container">
+      <p>&copy; <span id="y"></span> LL COMPLEX</p>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
