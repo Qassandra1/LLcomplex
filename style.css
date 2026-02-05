@@ -663,3 +663,386 @@ section { padding: 80px 0; }
         font-size: 12px;
     }
 }
+
+
+/* ===== НОВЫЕ СТИЛИ ДЛЯ ОБНОВЛЁННОГО САЙТА ===== */
+
+/* Кнопки в хедере */
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.header-btn-call {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+}
+
+.header-btn-call:hover {
+    background: linear-gradient(135deg, #20c997 0%, #28a745 100%);
+}
+
+/* Кнопка звонка в Hero */
+.btn-call {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: var(--white);
+}
+
+.btn-call:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(40, 167, 69, 0.4);
+}
+
+/* Ссылка на документ в бейдже */
+.badge-doc-link {
+    margin-left: 8px;
+    font-size: 16px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.badge-doc-link:hover {
+    opacity: 1;
+}
+
+/* Продающий текст в Hero */
+.hero-subtitle-main {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--primary-light);
+}
+
+/* Disclaimer box */
+.disclaimer-box {
+    background: rgba(0, 119, 182, 0.1);
+    border-left: 4px solid var(--primary);
+    padding: 20px;
+    border-radius: var(--radius);
+    margin-top: 30px;
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.disclaimer-box strong {
+    color: var(--primary);
+}
+
+/* Карточки проблем с картинками */
+.problem-card.with-image {
+    padding: 0;
+    overflow: hidden;
+}
+
+.problem-card.with-image .problem-image {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.problem-card.with-image .problem-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.problem-card.with-image:hover .problem-image img {
+    transform: scale(1.1);
+}
+
+.problem-card.with-image h3,
+.problem-card.with-image p {
+    padding: 0 20px;
+}
+
+.problem-card.with-image h3 {
+    margin-top: 20px;
+}
+
+.problem-card.with-image p {
+    padding-bottom: 20px;
+}
+
+/* Фичи с картинками */
+.feature.with-image {
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+}
+
+.feature.with-image .feature-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.feature.with-image .feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.feature.with-image .feature-content {
+    padding: 20px;
+}
+
+/* Шаги с картинками */
+.steps.with-images .step.with-image {
+    padding: 0;
+    overflow: hidden;
+}
+
+.step.with-image .step-image {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+
+.step.with-image .step-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.step.with-image .step-number {
+    margin-top: 20px;
+}
+
+.step.with-image h3,
+.step.with-image p {
+    padding: 0 20px;
+}
+
+.step.with-image p {
+    padding-bottom: 20px;
+}
+
+/* Условия с картинками */
+.conditions-grid.with-images .condition-card.with-image {
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+.condition-card.with-image .condition-image {
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+}
+
+.condition-card.with-image .condition-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.condition-card.with-image:hover .condition-image img {
+    transform: scale(1.1);
+}
+
+.condition-card.with-image span {
+    padding: 15px;
+    display: block;
+}
+
+/* Фиксированная кнопка звонка */
+.call-button-fixed {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: var(--white);
+    padding: 12px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(40, 167, 69, 0.4);
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    animation: pulse-call 2s ease-in-out infinite;
+}
+
+.call-button-fixed:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(40, 167, 69, 0.5);
+}
+
+.call-icon {
+    font-size: 18px;
+}
+
+@keyframes pulse-call {
+    0%, 100% { box-shadow: 0 4px 20px rgba(40, 167, 69, 0.4); }
+    50% { box-shadow: 0 4px 30px rgba(40, 167, 69, 0.6); }
+}
+
+/* Responsive для новых элементов */
+@media (max-width: 768px) {
+    .header-buttons {
+        display: none;
+    }
+    
+    .hero-subtitle-main {
+        font-size: 18px;
+    }
+    
+    .call-button-fixed {
+        bottom: 80px;
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+    
+    .call-text {
+        display: none;
+    }
+    
+    .call-button-fixed .call-icon {
+        font-size: 20px;
+    }
+    
+    .problems-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .problem-card.with-image .problem-image {
+        height: 140px;
+    }
+}
+
+@media (max-width: 480px) {
+    .problems-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ===== HERO VIDEO BACKGROUND ===== */
+.hero.hero-video-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(2, 62, 95, 0.85) 0%, rgba(0, 119, 182, 0.75) 100%);
+}
+
+.hero.hero-video-bg .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== DOCUMENTS SECTION ===== */
+.documents {
+    background: var(--white);
+    padding: 80px 0;
+}
+
+.documents-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.document-card {
+    background: var(--bg-light);
+    border-radius: var(--radius);
+    padding: 30px 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    border: 2px solid transparent;
+}
+
+.document-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary);
+    background: var(--white);
+}
+
+.document-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.document-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.document-card p {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    flex: 1;
+}
+
+.document-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary);
+    transition: color 0.3s ease;
+}
+
+.document-card:hover .document-link {
+    color: var(--primary-dark);
+}
+
+/* Responsive for documents */
+@media (max-width: 1024px) {
+    .documents-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .documents-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .document-card {
+        padding: 25px 20px;
+    }
+    
+    .document-icon {
+        font-size: 40px;
+    }
+}
+
+/* Responsive for video background */
+@media (max-width: 768px) {
+    .hero-video-overlay {
+        background: linear-gradient(135deg, rgba(2, 62, 95, 0.9) 0%, rgba(0, 119, 182, 0.85) 100%);
+    }
+}
