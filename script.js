@@ -113,6 +113,54 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // ===== GALLERY FOLDERS =====
+    const galleryFolders = document.querySelectorAll('.gallery-folder');
+    galleryFolders.forEach(folder => {
+        folder.addEventListener('click', function(e) {
+            // Если кликнули на изображение, не переключаем папку
+            if (e.target.tagName === 'IMG') return;
+            
+            const isActive = this.classList.contains('active');
+            // Закрываем все папки
+            galleryFolders.forEach(f => f.classList.remove('active'));
+            // Открываем текущую, если она была закрыта
+            if (!isActive) {
+                this.classList.add('active');
+            }
+        });
+    });
+
+    // ===== LIGHTBOX =====
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    
+    // Открытие изображения в lightbox
+    document.querySelectorAll('.folder-images img').forEach(img => {
+        img.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (lightbox && lightboxImg) {
+                lightboxImg.src = this.src;
+                lightbox.classList.add('active');
+            }
+        });
+    });
+    
+    // Закрытие lightbox
+    if (lightboxClose) {
+        lightboxClose.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+    }
+    
+    if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+            }
+        });
+    }
+
     // ===== HEADER SCROLL =====
     const header = document.querySelector('.header');
     if (header) {
