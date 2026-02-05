@@ -113,51 +113,103 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ===== GALLERY FOLDERS =====
-    const galleryFolders = document.querySelectorAll('.gallery-folder');
-    galleryFolders.forEach(folder => {
-        folder.addEventListener('click', function(e) {
-            // Если кликнули на изображение, не переключаем папку
-            if (e.target.tagName === 'IMG') return;
-            
-            const isActive = this.classList.contains('active');
-            // Закрываем все папки
-            galleryFolders.forEach(f => f.classList.remove('active'));
-            // Открываем текущую, если она была закрыта
-            if (!isActive) {
-                this.classList.add('active');
-            }
-        });
-    });
+    // ===== RESULTS FOLDER - HOVER/CLICK =====
+    const resultsFolder = document.getElementById('resultsFolder');
+    if (resultsFolder) {
+        // На мобильных устройствах используем клик
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        
+        if (isMobile) {
+            resultsFolder.addEventListener('click', function(e) {
+                // Если кликнули на изображение, не переключаем папку
+                if (e.target.tagName === 'IMG') return;
+                this.classList.toggle('active');
+            });
+        }
+        // На десктопе hover работает через CSS
+    }
 
     // ===== LIGHTBOX =====
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxClose = document.querySelector('.lightbox-close');
     
+    // Собираем все изображения галереи
+    const galleryImages = document.querySelectorAll('.result-img, .result-img-full');
+    let currentImageIndex = 0;
+    const imagesArray = Array.from(galleryImages);
+    
     // Открытие изображения в lightbox
-    document.querySelectorAll('.folder-images img').forEach(img => {
+    galleryImages.forEach((img, index) => {
         img.addEventListener('click', function(e) {
             e.stopPropagation();
             if (lightbox && lightboxImg) {
                 lightboxImg.src = this.src;
                 lightbox.classList.add('active');
+                currentImageIndex = index;
+                document.body.style.overflow = 'hidden';
             }
         });
     });
     
     // Закрытие lightbox
     if (lightboxClose) {
-        lightboxClose.addEventListener('click', () => {
-            lightbox.classList.remove('active');
-        });
+        lightboxClose.addEventListener('click', closeLightbox);
     }
     
     if (lightbox) {
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) {
-                lightbox.classList.remove('active');
+                closeLightbox();
             }
+        });
+    }
+    
+    function closeLightbox() {
+        if (lightbox) {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+    
+    // Навигация клавишами
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox || !lightbox.classList.contains('active')) return;
+        
+        if (e.key === 'Escape') {
+            closeLightbox();
+        } else if (e.key === 'ArrowRight') {
+            navigateLightbox(1);
+        } else if (e.key === 'ArrowLeft') {
+            navigateLightbox(-1);
+        }
+    });
+    
+    function navigateLightbox(direction) {
+        currentImageIndex += direction;
+        if (currentImageIndex >= imagesArray.length) currentImageIndex = 0;
+        if (currentImageIndex < 0) currentImageIndex = imagesArray.length - 1;
+        
+        if (lightboxImg && imagesArray[currentImageIndex]) {
+            lightboxImg.src = imagesArray[currentImageIndex].src;
+        }
+    }
+    
+    // Навигация кнопками (если они есть)
+    const lightboxPrev = document.querySelector('.lightbox-prev');
+    const lightboxNext = document.querySelector('.lightbox-next');
+    
+    if (lightboxPrev) {
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navigateLightbox(-1);
+        });
+    }
+    
+    if (lightboxNext) {
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navigateLightbox(1);
         });
     }
 

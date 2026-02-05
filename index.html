@@ -199,376 +199,183 @@
             </div>
         </div>
     </section>
-
     <!-- Results Gallery Section -->
     <section class="gallery" id="gallery">
         <div class="container">
             <h2 class="section-title">Галерея результатов</h2>
-            <p class="section-subtitle">Реальные фото наших клиентов до и после курса LL COMPLEX. Наведите на категорию, чтобы увидеть результаты.</p>
+            <p class="section-subtitle">Реальные фото наших клиентов до и после курса LL COMPLEX</p>
             
             <div class="results-disclaimer">
                 <strong>Важно понимать:</strong> LL COMPLEX — это не волшебная таблетка, а природная вода с уникальным составом минералов. Каждый организм индивидуален.
             </div>
 
-            <div class="gallery-grid">
-                <!-- Атопический дерматит -->
-                <div class="gallery-folder">
-                    <div class="folder-cover">
-                        <div class="folder-icon">📁</div>
-                        <h3>Атопический дерматит</h3>
-                        <p>4 фото • Результат курса</p>
+            <!-- Одна большая папка с результатами -->
+            <div class="results-folder" id="resultsFolder">
+                <div class="folder-header-main">
+                    <div class="folder-icon-big">📁</div>
+                    <div class="folder-title">
+                        <h3>Результаты лечения</h3>
+                        <p>43 фото • Наведите чтобы открыть</p>
                     </div>
-                    <div class="folder-content">
-                        <div class="folder-images">
-                            <div class="before-after-pair">
-                                <img src="images/results/dermatit_1_before.jpg" alt="До">
-                                <img src="images/results/dermatit_1_after.jpg" alt="После">
-                            </div>
-                            <div class="before-after-pair">
-                                <img src="images/results/dermatit_2_before.jpg" alt="До">
-                                <img src="images/results/dermatit_2_after.jpg" alt="После">
-                            </div>
-                        </div>
-                    </div>
+                    <div class="folder-arrow">▼</div>
                 </div>
-
-                <!-- Ребёнок за 1 месяц -->
-                <div class="gallery-folder">
-                    <div class="folder-cover">
-                        <div class="folder-icon">📁</div>
-                        <h3>Ребёнок за 1 месяц</h3>
-                        <p>4 фото • Маленький пациент</p>
-                    </div>
-                    <div class="folder-content">
-                        <div class="folder-images">
-                            <div class="before-after-pair">
-                                <img src="images/results/baby_1_before.jpg" alt="До">
-                                <img src="images/results/baby_1_after.jpg" alt="После">
-                            </div>
-                            <div class="before-after-pair">
-                                <img src="images/results/baby_2_before.jpg" alt="До">
-                                <img src="images/results/baby_2_after.jpg" alt="После">
-                            </div>
+                
+                <div class="folder-content-main">
+                    <div class="results-grid">
+                        <!-- Атопический дерматит -->
+                        <div class="result-card" data-title="Атопический дерматит — 1">
+                            <img src="images/results/dermatit_1_before.jpg" alt="До" class="result-img" data-label="До">
+                            <img src="images/results/dermatit_1_after.jpg" alt="После" class="result-img" data-label="После">
+                            <div class="result-label">Атопический дерматит</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- За ухом за 2 недели -->
-                <div class="gallery-folder">
-                    <div class="folder-cover">
-                        <div class="folder-icon">📁</div>
-                        <h3>За ухом за 2 недели</h3>
-                        <p>2 фото • Быстрый результат</p>
-                    </div>
-                    <div class="folder-content">
-                        <div class="folder-images">
-                            <div class="before-after-pair">
-                                <img src="images/results/ear_before.jpg" alt="До">
-                                <img src="images/results/ear_after.jpg" alt="После">
-                            </div>
+                        
+                        <div class="result-card" data-title="Атопический дерматит — 2">
+                            <img src="images/results/dermatit_2_before.jpg" alt="До" class="result-img" data-label="До">
+                            <img src="images/results/dermatit_2_after.jpg" alt="После" class="result-img" data-label="После">
+                            <div class="result-label">Атопический дерматит</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Нога за 45 дней -->
-                <div class="gallery-folder">
-                    <div class="folder-cover">
-                        <div class="folder-icon">📁</div>
-                        <h3>Нога за 45 дней</h3>
-                        <p>2 фото • Полтора месяца</p>
-                    </div>
-                    <div class="folder-content">
-                        <div class="folder-images">
-                            <div class="before-after-pair">
-                                <img src="images/results/leg45_before.jpg" alt="До">
-                                <img src="images/results/leg45_after.jpg" alt="После">
-                            </div>
+                        
+                        <!-- Ребёнок -->
+                        <div class="result-card" data-title="Ребёнок за 1 месяц — 1">
+                            <img src="images/results/baby_1_before.jpg" alt="До" class="result-img" data-label="До">
+                            <img src="images/results/baby_1_after.jpg" alt="После" class="result-img" data-label="После">
+                            <div class="result-label">Ребёнок • 1 месяц</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Промежуточный результат 60 дней -->
-                <div class="gallery-folder">
-                    <div class="folder-cover">
-                        <div class="folder-icon">📁</div>
-                        <h3>Результат за 60 дней</h3>
-                        <p>2 фото • Промежуточный</p>
-                    </div>
-                    <div class="folder-content">
-                        <div class="folder-images">
-                            <div class="before-after-pair">
-                                <img src="images/results/progress60_before.jpg" alt="До">
-                                <img src="images/results/progress60_after.jpg" alt="После">
-                            </div>
+                        
+                        <div class="result-card" data-title="Ребёнок за 1 месяц — 2">
+                            <img src="images/results/baby_2_before.jpg" alt="До" class="result-img" data-label="До">
+                            <img src="images/results/baby_2_after.jpg" alt="После" class="result-img" data-label="После">
+                            <div class="result-label">Ребёнок • 1 месяц</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Спина за 40 дней -->
-                <div class="gallery-folder">
-                    <div class="folder-cover">
-                        <div class="folder-icon">📁</div>
-                        <h3>Спина за 40 дней</h3>
-                        <p>2 фото • Результат курса</p>
-                    </div>
-                    <div class="folder-content">
-                        <div class="folder-images">
-                            <div class="before-after-pair">
-                                <img src="images/results/back40_before.jpg" alt="До">
-                                <img src="images/results/back40_after.jpg" alt="После">
-                            </div>
+                        
+                        <!-- За ухом -->
+                        <div class="result-card" data-title="За ухом за 2 недели">
+                            <img src="images/results/ear_before.jpg" alt="До" class="result-img" data-label="До">
+                            <img src="images/results/ear_after.jpg" alt="После" class="result-img" data-label="После">
+                            <div class="result-label">За ухом • 2 недели</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Лоб за 30 дней -->
-                <div class="gallery-folder">
-                    <div class="folder-cover">
-                        <div class="folder-icon">📁</div>
-                        <h3>Лоб за 30 дней</h3>
-                        <p>2 фото • Месяц лечения</p>
-                    </div>
-                    <div class="folder-content">
-                        <div class="folder-images">
-                            <div class="before-after-pair">
-                                <img src="images/results/forehead30_before.jpg" alt="До">
-                                <img src="images/results/forehead30_after.jpg" alt="После">
-                            </div>
+                        
+                        <!-- Нога 45 дней -->
+                        <div class="result-card" data-title="Нога за 45 дней">
+                            <img src="images/results/leg45_before.jpg" alt="До" class="result-img" data-label="До">
+                            <img src="images/results/leg45_after.jpg" alt="После" class="result-img" data-label="После">
+                            <div class="result-label">Нога • 45 дней</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Язык (6 лет не могли вылечить) -->
-                <div class="gallery-folder">
-                    <div class="folder-cover">
-                        <div class="folder-icon">📁</div>
-                        <h3>Язык — 6 лет не могли вылечить</h3>
-                        <p>2 фото • За месяц вылечили!</p>
-                    </div>
-                    <div class="folder-content">
-                        <div class="folder-images">
-                            <div class="before-after-pair">
-                                <img src="images/results/tongue_before.jpg" alt="До">
-                                <img src="images/results/tongue_after.jpg" alt="После">
-                            </div>
+                        
+                        <!-- Прогресс 60 дней -->
+                        <div class="result-card" data-title="Результат за 60 дней">
+                            <img src="images/results/progress60_before.jpg" alt="До" class="result-img" data-label="До">
+                            <img src="images/results/progress60_after.jpg" alt="После" class="result-img" data-label="После">
+                            <div class="result-label">Прогресс • 60 дней</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Ноги за месяц -->
-                <div class="gallery-folder">
-                    <div class="folder-cover">
-                        <div class="folder-icon">📁</div>
-                        <h3>Ноги за месяц</h3>
-                        <p>2 фото • Потрясающий результат</p>
-                    </div>
-                    <div class="folder-content">
-                        <div class="folder-images">
-                            <div class="before-after-pair">
-                                <img src="images/results/legs_month_before.jpg" alt="До">
-                                <img src="images/results/legs_month_after.jpg" alt="После">
-                            </div>
+                        
+                        <!-- Спина 40 дней -->
+                        <div class="result-card" data-title="Спина за 40 дней">
+                            <img src="images/results/back40_before.jpg" alt="До" class="result-img" data-label="До">
+                            <img src="images/results/back40_after.jpg" alt="После" class="result-img" data-label="После">
+                            <div class="result-label">Спина • 40 дней</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Конъюнктивит за 2 дня -->
-                <div class="gallery-folder">
-                    <div class="folder-cover">
-                        <div class="folder-icon">📁</div>
-                        <h3>Конъюнктивит за 2 дня</h3>
-                        <p>2 фото • Супер быстро!</p>
-                    </div>
-                    <div class="folder-content">
-                        <div class="folder-images">
-                            <div class="before-after-pair">
-                                <img src="images/results/eye_before.jpg" alt="До">
-                                <img src="images/results/eye_after.jpg" alt="После">
-                            </div>
+                        
+                        <!-- Лоб 30 дней -->
+                        <div class="result-card" data-title="Лоб за 30 дней">
+                            <img src="images/results/forehead30_before.jpg" alt="До" class="result-img" data-label="До">
+                            <img src="images/results/forehead30_after.jpg" alt="После" class="result-img" data-label="После">
+                            <div class="result-label">Лоб • 30 дней</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- 60 дней результат -->
-                <div class="gallery-folder">
-                    <div class="folder-cover">
-                        <div class="folder-icon">📁</div>
-                        <h3>Результат за 60 дней</h3>
-                        <p>2 фото • Два месяца курса</p>
-                    </div>
-                    <div class="folder-content">
-                        <div class="folder-images">
-                            <div class="before-after-pair">
-                                <img src="images/results/result60_before.jpg" alt="До">
-                                <img src="images/results/result60_after.jpg" alt="После">
-                            </div>
+                        
+                        <!-- Язык -->
+                        <div class="result-card" data-title="Язык — 6 лет не могли вылечить">
+                            <img src="images/results/tongue_before.jpg" alt="До" class="result-img" data-label="До">
+                            <img src="images/results/tongue_after.jpg" alt="После" class="result-img" data-label="После">
+                            <div class="result-label">Язык • 1 месяц</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Рана при диабете за 2 недели -->
-                <div class="gallery-folder">
-                    <div class="folder-cover">
-                        <div class="folder-icon">📁</div>
-                        <h3>Рана при диабете</h3>
-                        <p>2 фото • За 2 недели зажила!</p>
-                    </div>
-                    <div class="folder-content">
-                        <div class="folder-images">
-                            <div class="before-after-pair">
-                                <img src="images/results/diabetes_before.jpg" alt="До">
-                                <img src="images/results/diabetes_after.jpg" alt="После">
-                            </div>
+                        
+                        <!-- Ноги за месяц -->
+                        <div class="result-card" data-title="Ноги за месяц">
+                            <img src="images/results/legs_month_before.jpg" alt="До" class="result-img" data-label="До">
+                            <img src="images/results/legs_month_after.jpg" alt="После" class="result-img" data-label="После">
+                            <div class="result-label">Ноги • 1 месяц</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Нога за 2 месяца -->
-                <div class="gallery-folder">
-                    <div class="folder-cover">
-                        <div class="folder-icon">📁</div>
-                        <h3>Нога за 2 месяца</h3>
-                        <p>2 фото • Полный курс</p>
-                    </div>
-                    <div class="folder-content">
-                        <div class="folder-images">
-                            <div class="before-after-pair">
-                                <img src="images/results/leg2m_before.jpg" alt="До">
-                                <img src="images/results/leg2m_after.jpg" alt="После">
-                            </div>
+                        
+                        <!-- Конъюнктивит -->
+                        <div class="result-card" data-title="Конъюнктивит за 2 дня">
+                            <img src="images/results/eye_before.jpg" alt="До" class="result-img" data-label="До">
+                            <img src="images/results/eye_after.jpg" alt="После" class="result-img" data-label="После">
+                            <div class="result-label">Конъюнктивит • 2 дня</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Кожа головы за месяц -->
-                <div class="gallery-folder">
-                    <div class="folder-cover">
-                        <div class="folder-icon">📁</div>
-                        <h3>Кожа головы за месяц</h3>
-                        <p>2 фото • Результат курса</p>
-                    </div>
-                    <div class="folder-content">
-                        <div class="folder-images">
-                            <div class="before-after-pair">
-                                <img src="images/results/scalp_before.jpg" alt="До">
-                                <img src="images/results/scalp_after.jpg" alt="После">
-                            </div>
+                        
+                        <!-- Результат 60 дней -->
+                        <div class="result-card" data-title="Результат за 60 дней">
+                            <img src="images/results/result60_before.jpg" alt="До" class="result-img" data-label="До">
+                            <img src="images/results/result60_after.jpg" alt="После" class="result-img" data-label="После">
+                            <div class="result-label">Результат • 60 дней</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Рука за 16 дней -->
-                <div class="gallery-folder">
-                    <div class="folder-cover">
-                        <div class="folder-icon">📁</div>
-                        <h3>Рука за 16 дней</h3>
-                        <p>1 фото • Коллаж до/после</p>
-                    </div>
-                    <div class="folder-content">
-                        <div class="folder-images">
-                            <div class="collage-single">
-                                <img src="images/results/hand16_collage.jpg" alt="До и После">
-                            </div>
+                        
+                        <!-- Рана при диабете -->
+                        <div class="result-card" data-title="Рана при диабете">
+                            <img src="images/results/diabetes_before.jpg" alt="До" class="result-img" data-label="До">
+                            <img src="images/results/diabetes_after.jpg" alt="После" class="result-img" data-label="После">
+                            <div class="result-label">Диабет • 2 недели</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Голова за 7 дней -->
-                <div class="gallery-folder">
-                    <div class="folder-cover">
-                        <div class="folder-icon">📁</div>
-                        <h3>Голова за 7 дней</h3>
-                        <p>1 фото • Неделя результат!</p>
-                    </div>
-                    <div class="folder-content">
-                        <div class="folder-images">
-                            <div class="collage-single">
-                                <img src="images/results/head7_collage.jpg" alt="До и После">
-                            </div>
+                        
+                        <!-- Нога 2 месяца -->
+                        <div class="result-card" data-title="Нога за 2 месяца">
+                            <img src="images/results/leg2m_before.jpg" alt="До" class="result-img" data-label="До">
+                            <img src="images/results/leg2m_after.jpg" alt="После" class="result-img" data-label="После">
+                            <div class="result-label">Нога • 2 месяца</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Пальцы за 7 дней -->
-                <div class="gallery-folder">
-                    <div class="folder-cover">
-                        <div class="folder-icon">📁</div>
-                        <h3>Пальцы за 7 дней</h3>
-                        <p>1 фото • Быстрый результат</p>
-                    </div>
-                    <div class="folder-content">
-                        <div class="folder-images">
-                            <div class="collage-single">
-                                <img src="images/results/fingers7_collage.jpg" alt="До и После">
-                            </div>
+                        
+                        <!-- Кожа головы -->
+                        <div class="result-card" data-title="Кожа головы за месяц">
+                            <img src="images/results/scalp_before.jpg" alt="До" class="result-img" data-label="До">
+                            <img src="images/results/scalp_after.jpg" alt="После" class="result-img" data-label="После">
+                            <div class="result-label">Голова • 1 месяц</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Тело за 2 месяца -->
-                <div class="gallery-folder">
-                    <div class="folder-cover">
-                        <div class="folder-icon">📁</div>
-                        <h3>Тело за 2 месяца</h3>
-                        <p>2 фото • Полный курс</p>
-                    </div>
-                    <div class="folder-content">
-                        <div class="folder-images">
-                            <div class="before-after-pair">
-                                <img src="images/results/body2m_before.jpg" alt="До">
-                                <img src="images/results/body2m_after.jpg" alt="После">
-                            </div>
+                        
+                        <!-- Рука 16 дней (коллаж) -->
+                        <div class="result-card collage" data-title="Рука за 16 дней">
+                            <img src="images/results/hand16_collage.jpg" alt="До и После" class="result-img-full">
+                            <div class="result-label">Рука • 16 дней</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Нога 2 месяца (второй случай) -->
-                <div class="gallery-folder">
-                    <div class="folder-cover">
-                        <div class="folder-icon">📁</div>
-                        <h3>Нога — ещё один случай</h3>
-                        <p>2 фото • 2 месяца курса</p>
-                    </div>
-                    <div class="folder-content">
-                        <div class="folder-images">
-                            <div class="before-after-pair">
-                                <img src="images/results/leg2m2_before.jpg" alt="До">
-                                <img src="images/results/leg2m2_after.jpg" alt="После">
-                            </div>
+                        
+                        <!-- Голова 7 дней (коллаж) -->
+                        <div class="result-card collage" data-title="Голова за 7 дней">
+                            <img src="images/results/head7_collage.jpg" alt="До и После" class="result-img-full">
+                            <div class="result-label">Голова • 7 дней</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Ступни -->
-                <div class="gallery-folder">
-                    <div class="folder-cover">
-                        <div class="folder-icon">📁</div>
-                        <h3>Ступни — результат</h3>
-                        <p>2 фото • LL COMPLEX</p>
-                    </div>
-                    <div class="folder-content">
-                        <div class="folder-images">
-                            <div class="before-after-pair">
-                                <img src="images/results/feet_before.jpg" alt="До">
-                                <img src="images/results/feet_after.jpg" alt="После">
-                            </div>
+                        
+                        <!-- Пальцы 7 дней (коллаж) -->
+                        <div class="result-card collage" data-title="Пальцы за 7 дней">
+                            <img src="images/results/fingers7_collage.jpg" alt="До и После" class="result-img-full">
+                            <div class="result-label">Пальцы • 7 дней</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Кисти за 35 дней -->
-                <div class="gallery-folder">
-                    <div class="folder-cover">
-                        <div class="folder-icon">📁</div>
-                        <h3>Кисти за 35 дней</h3>
-                        <p>2 фото • Результат курса</p>
-                    </div>
-                    <div class="folder-content">
-                        <div class="folder-images">
-                            <div class="before-after-pair">
-                                <img src="images/results/hands35_before.jpg" alt="До">
-                                <img src="images/results/hands35_after.jpg" alt="После">
-                            </div>
+                        
+                        <!-- Тело 2 месяца -->
+                        <div class="result-card" data-title="Тело за 2 месяца">
+                            <img src="images/results/body2m_before.jpg" alt="До" class="result-img" data-label="До">
+                            <img src="images/results/body2m_after.jpg" alt="После" class="result-img" data-label="После">
+                            <div class="result-label">Тело • 2 месяца</div>
+                        </div>
+                        
+                        <!-- Нога 2 месяца (второй случай) -->
+                        <div class="result-card" data-title="Нога — ещё один случай">
+                            <img src="images/results/leg2m2_before.jpg" alt="До" class="result-img" data-label="До">
+                            <img src="images/results/leg2m2_after.jpg" alt="После" class="result-img" data-label="После">
+                            <div class="result-label">Нога • 2 месяца</div>
+                        </div>
+                        
+                        <!-- Ступни -->
+                        <div class="result-card" data-title="Ступни — результат">
+                            <img src="images/results/feet_before.jpg" alt="До" class="result-img" data-label="До">
+                            <img src="images/results/feet_after.jpg" alt="После" class="result-img" data-label="После">
+                            <div class="result-label">Ступни</div>
+                        </div>
+                        
+                        <!-- Кисти 35 дней -->
+                        <div class="result-card" data-title="Кисти за 35 дней">
+                            <img src="images/results/hands35_before.jpg" alt="До" class="result-img" data-label="До">
+                            <img src="images/results/hands35_after.jpg" alt="После" class="result-img" data-label="После">
+                            <div class="result-label">Кисти • 35 дней</div>
                         </div>
                     </div>
                 </div>
